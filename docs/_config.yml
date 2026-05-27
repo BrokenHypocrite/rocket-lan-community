@@ -3,5 +3,3 @@
 # HTML/CSS pages aren't wrapped in Cayman/Minima or fed through Liquid.
 theme: null
 plugins: []
-exclude:
-  - assets/PLACEHOLDERS.md

@@ -167,6 +167,19 @@
 
         <div class="slideshow-dots" id="slideshow-dots" role="tablist" aria-label="Choose screenshot"></div>
       </div>
+
+      <div
+        class="lightbox"
+        id="lightbox"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Expanded screenshot"
+        aria-hidden="true"
+      >
+        <button class="lightbox-close" type="button" aria-label="Close (Esc)">&times;</button>
+        <img class="lightbox-img" id="lightbox-img" alt="" />
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+      </div>
     </section>
 
     <section>
@@ -356,6 +369,66 @@
       // Initial paint, then start the rotation.
       render();
       startAuto();
+
+      // Click-to-expand lightbox. Only the active slide is clickable
+      // (the side peeks have pointer-events: none in CSS), so users
+      // always expand the slide they're currently focused on. The
+      // lightbox sizes the image to whichever of 90vw / 90vh is more
+      // limiting, preserving aspect ratio.
+      var lightbox = document.getElementById("lightbox");
+      var lightboxImg = document.getElementById("lightbox-img");
+      var lightboxCaption = document.getElementById("lightbox-caption");
+      var lightboxClose = lightbox && lightbox.querySelector(".lightbox-close");
+
+      function openLightbox(src, alt, caption) {
+        if (!lightbox || !lightboxImg) return;
+        lightboxImg.src = src;
+        lightboxImg.alt = alt || "";
+        if (lightboxCaption) lightboxCaption.textContent = caption || "";
+        lightbox.classList.add("is-open");
+        lightbox.setAttribute("aria-hidden", "false");
+        pauseAuto();
+        // Move focus into the dialog for keyboard users.
+        if (lightboxClose) lightboxClose.focus();
+      }
+      function closeLightbox() {
+        if (!lightbox) return;
+        lightbox.classList.remove("is-open");
+        lightbox.setAttribute("aria-hidden", "true");
+        // Clear the src after the close transition so the image isn't
+        // kept in memory and the next open feels snappy.
+        window.setTimeout(function () { lightboxImg.src = ""; }, 200);
+      }
+
+      slides.forEach(function (slide) {
+        var img = slide.querySelector("img");
+        var caption = slide.querySelector("figcaption");
+        if (!img) return;
+        slide.addEventListener("click", function () {
+          // Only the active slide reacts (CSS gates pointer-events on
+          // siblings), but double-guard here so a stray click on a
+          // partially-visible adjacent slide never triggers it.
+          if (!slide.classList.contains("is-active")) return;
+          openLightbox(img.src, img.alt, caption ? caption.textContent : "");
+        });
+      });
+
+      if (lightbox) {
+        // Backdrop click closes; clicking the image itself does NOT
+        // (so a misclick while reading the screenshot doesn't dismiss).
+        lightbox.addEventListener("click", function (e) {
+          if (e.target === lightbox) closeLightbox();
+        });
+        if (lightboxClose) lightboxClose.addEventListener("click", closeLightbox);
+        // The expanded image is also a close target (zoom-out cursor).
+        lightboxImg.addEventListener("click", closeLightbox);
+      }
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && lightbox && lightbox.classList.contains("is-open")) {
+          closeLightbox();
+        }
+      });
     })();
   </script>
 </body>

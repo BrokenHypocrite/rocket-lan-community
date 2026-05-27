@@ -110,7 +110,6 @@ hr {
   margin: 0 auto;
   padding: 0 var(--space-5);
 }
-.container-wide { max-width: var(--content-wide); }
 
 /* --- top nav ---------------------------------------------------------- */
 
@@ -295,10 +294,6 @@ hr {
   border-color: var(--accent-30);
   background: var(--accent-soft);
 }
-.callout-warning {
-  border-color: var(--warning);
-  background: var(--warning-soft);
-}
 .callout strong { color: var(--text); }
 
 /* --- prose page ------------------------------------------------------ */
@@ -455,7 +450,9 @@ hr {
     0 24px 60px -20px oklch(0 0 0 / 0.6),
     0 0 0 1px var(--accent-30);
   pointer-events: auto;
+  cursor: zoom-in;
 }
+.slide.is-active img { cursor: zoom-in; }
 
 .slide img {
   display: block;
@@ -479,27 +476,34 @@ hr {
   top: 50%;
   transform: translateY(-50%);
   z-index: 3;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  border: 1px solid var(--border);
-  background: oklch(0.155 0.008 250 / 0.9);
-  color: var(--text);
-  font-size: 1.3rem;
+  border: 0;
+  background: var(--accent);
+  /* White glyphs, with a subtle dark drop-shadow so they stay legible
+     against the bright cyan disc no matter the background behind. */
+  color: #fff;
+  text-shadow: 0 1px 2px oklch(0.15 0.02 205 / 0.55);
+  font-size: 1.4rem;
   font-weight: 700;
+  line-height: 1;
   cursor: pointer;
   display: grid;
   place-items: center;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  box-shadow:
+    0 10px 28px -8px oklch(0 0 0 / 0.55),
+    0 0 0 1px oklch(1 0 0 / 0.08) inset;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
 .slideshow-btn:hover {
-  background: var(--surface-2);
-  border-color: var(--accent-30);
-  color: var(--accent);
-  transform: translateY(-50%) scale(1.05);
+  background: var(--accent-hover);
+  transform: translateY(-50%) scale(1.08);
+  box-shadow:
+    0 14px 32px -8px oklch(0 0 0 / 0.65),
+    0 0 0 1px oklch(1 0 0 / 0.12) inset;
 }
+.slideshow-btn:active { transform: translateY(-50%) scale(0.96); }
 .slideshow-prev { left: 12px; }
 .slideshow-next { right: 12px; }
 
@@ -534,27 +538,74 @@ hr {
   .slideshow-next { right: 4px; }
 }
 
-/* --- screenshot placeholder ----------------------------------------- */
+/* --- lightbox ------------------------------------------------------- */
 
-.screenshot-placeholder {
-  display: flex;
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
   align-items: center;
   justify-content: center;
-  min-height: 240px;
-  background:
-    repeating-linear-gradient(
-      45deg,
-      var(--surface) 0 16px,
-      var(--surface-2) 16px 32px
-    );
-  border: 1px dashed var(--border);
+  padding: 5vmin;
+  background: oklch(0 0 0 / 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+.lightbox.is-open {
+  display: flex;
+  opacity: 1;
+}
+.lightbox-img {
+  /* Whichever of 90vw / 90vh is more limiting wins via aspect-ratio +
+     object-fit, so the image always fits without ever overflowing the
+     viewport, regardless of orientation. */
+  max-width: 90vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
   border-radius: var(--radius-lg);
-  color: var(--text-dim);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  margin: var(--space-5) 0;
+  box-shadow: 0 40px 100px -20px oklch(0 0 0 / 0.9);
+  cursor: zoom-out;
+}
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  font-weight: 700;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 28px -8px oklch(0 0 0 / 0.6);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.lightbox-close:hover {
+  background: var(--accent-hover);
+  transform: scale(1.08);
+}
+.lightbox-caption {
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 90vw;
+  padding: 8px 14px;
+  border-radius: var(--radius-md);
+  background: oklch(0.155 0.008 250 / 0.7);
+  color: var(--text);
+  font-size: 0.9rem;
   text-align: center;
-  padding: var(--space-4);
 }
 
 /* --- small viewports ------------------------------------------------- */

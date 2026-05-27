@@ -22,10 +22,7 @@ there.
 
 If GitHub Security Advisories isn't workable for you, email:
 
-> **`<TODO: SECURITY EMAIL>`** &nbsp;*(placeholder, fill in before going public)*
-
-Encrypt with PGP if you'd prefer; key fingerprint will be published here
-once one exists.
+> **`brokenhypocrite@gmail.com`**
 
 ### What to include
 
