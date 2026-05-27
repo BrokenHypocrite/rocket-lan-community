@@ -10,7 +10,7 @@ body:
 
         If you're not sure whether this is a fully-formed feature request or
         more of a half-formed idea, open it as a [Discussion → Ideas](../../discussions/new?category=ideas)
-        instead — we can promote it to an issue if it firms up.
+        instead, we can promote it to an issue if it firms up.
 
   - type: textarea
     id: problem
@@ -25,7 +25,7 @@ body:
     id: proposal
     attributes:
       label: What would you like Rocket LAN to do?
-      description: How would your ideal version of this work? UI placement, behavior, edge cases — go as concrete as you can.
+      description: How would your ideal version of this work? UI placement, behavior, edge cases, go as concrete as you can.
     validations:
       required: true
 
@@ -49,7 +49,7 @@ body:
     id: alternatives
     attributes:
       label: Alternatives you've considered
-      description: Other ways to solve the same problem — including workarounds you currently use, or features in other tools that handle this.
+      description: Other ways to solve the same problem, including workarounds you currently use, or features in other tools that handle this.
 
   - type: dropdown
     id: priority
@@ -58,7 +58,7 @@ body:
       options:
         - Nice-to-have / curious
         - Would meaningfully improve my use of Rocket LAN
-        - Blocking — I can't use Rocket LAN well without it
+        - Blocking, I can't use Rocket LAN well without it
     validations:
       required: true
 
@@ -66,7 +66,7 @@ body:
     id: extras
     attributes:
       label: Anything else?
-      description: Sketches, mockups, screenshots from other apps that do this well — all welcome.
+      description: Sketches, mockups, screenshots from other apps that do this well, all welcome.
 
   - type: checkboxes
     id: checks

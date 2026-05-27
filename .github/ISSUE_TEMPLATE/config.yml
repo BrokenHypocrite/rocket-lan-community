@@ -2,7 +2,7 @@ blank_issues_enabled: false
 contact_links:
   - name: Question or how-to
     url: https://github.com/BrokenHypocrite/rocket-lan-community/discussions/new?category=q-a
-    about: Open a Q&A discussion instead — questions get faster answers there than as issues.
+    about: Open a Q&A discussion instead, questions get faster answers there than as issues.
   - name: Idea / "what if Rocket LAN..."
     url: https://github.com/BrokenHypocrite/rocket-lan-community/discussions/new?category=ideas
     about: For half-formed ideas. We'll promote it to a feature issue if it firms up.

@@ -1,4 +1,4 @@
-# Rocket LAN — Terms of Use
+# Rocket LAN, Terms of Use
 
 _Last updated: 26 May 2026_
 
@@ -39,10 +39,10 @@ Software, except to the extent such restriction is prohibited by applicable
 law.
 
 Rocket LAN bundles several third-party components, each governed by its own
-license. The notable components — including OpenVPN's **tap-windows6**
+license. The notable components, including OpenVPN's **tap-windows6**
 virtual network driver, licensed under the **GNU General Public License,
 version 2**, with corresponding source pointers; Valve's Steamworks SDK;
-and the bundled fonts under the SIL Open Font License — are listed in the
+and the bundled fonts under the SIL Open Font License, are listed in the
 in-app **Settings → Third-Party Notices** screen and reproduced publicly in
 the project's [Third-Party Notices](./THIRD-PARTY-NOTICES.md) document.
 
@@ -86,7 +86,7 @@ analytics, telemetry, or automatic crash reporting.
   on your own computer. Nothing is uploaded.
 - The developer does not sell, share, rent, or otherwise monetize any data.
 
-## 6. Provided "as is" — no warranty
+## 6. Provided "as is", no warranty
 
 The Software is provided free of charge, on an "AS IS" and "AS AVAILABLE"
 basis, **without warranty of any kind**, express or implied, including but
@@ -97,9 +97,9 @@ purpose, and non-infringement. You use the Software at your own risk.
 
 To the maximum extent permitted by applicable law, the developer of Rocket
 LAN shall not be liable for any direct, indirect, incidental, special, or
-consequential damages — including but not limited to loss of data,
+consequential damages, including but not limited to loss of data,
 interruption of service, damage to your Rocket League installation, or any
-other computer or system problems — arising out of or in connection with
+other computer or system problems, arising out of or in connection with
 the Software or its use, even if advised of the possibility of such damages.
 
 ## 8. Acceptable use

@@ -3,10 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rocket LAN — Custom-map nights with friends, over the internet</title>
-  <meta name="description" content="Rocket LAN turns Rocket League's built-in LAN match mode into an internet-friendly way to play custom maps with friends. Pre-release." />
+  <title>Rocket LAN, custom-map nights for Rocket League with friends</title>
+  <meta name="description" content="Rocket LAN is a Steam companion app that spins up a virtual LAN, downloads and syncs custom maps between players in a session, and just works. Steam and Epic supported." />
   <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/32x32.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/icons/64x64.png" />
+  <link rel="icon" type="image/png" sizes="128x128" href="assets/icons/128x128.png" />
+  <link rel="icon" href="assets/icons/icon.ico" />
 </head>
 <body>
   <nav class="site-nav" aria-label="Primary">
@@ -24,17 +27,19 @@
 
   <header class="hero">
     <div class="container hero-inner">
-      <span class="pill pill-accent pill-dot">Pre-release</span>
-      <h1>Custom-map nights for Rocket League, with friends, over the internet.</h1>
+      <span class="pill pill-accent pill-dot">Coming soon on Steam</span>
+      <h1>Custom-map nights for Rocket League, with friends.</h1>
       <p class="hero-lede">
-        Rocket LAN spins up a private virtual network on each player's machine,
-        then lets Rocket League's own built-in LAN match mode handle the rest.
-        Custom maps. Steam-friend invites. No port-forwarding, no DDoS exposure,
-        no injection into the game.
+        Rocket LAN is a Steam companion app that spins up a virtual LAN,
+        downloads and syncs custom maps between players in a session, and
+        just works, effortlessly. Plays nice with the Steam and Epic
+        versions of Rocket League.
       </p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="features.html">See what it does</a>
-        <a class="btn" href="roadmap.html">Pre-release status</a>
+        <a class="btn btn-primary" href="https://store.steampowered.com/app/3183610/Rocket_LAN" target="_blank" rel="noopener">
+          Wishlist on Steam
+        </a>
+        <a class="btn" href="features.html">See what it does</a>
       </div>
     </div>
   </header>
@@ -42,13 +47,12 @@
   <main class="container">
     <div class="callout callout-accent" role="note">
       <div>
-        <strong>Heads up.</strong>
-        Rocket LAN isn't generally available yet. Early access is going out in
-        limited batches while we sand off rough edges. The
-        <a href="roadmap.html">roadmap</a> tracks what's shipped, in progress,
-        and planned; if you want to know when a public build lands,
-        <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions">watch
-        the community</a>.
+        <strong>Launching on Steam shortly.</strong>
+        Rocket LAN is feature-complete for launch and currently in
+        Steam's review queue, typically a 1, 2 week window.
+        <a href="https://store.steampowered.com/app/3183610/Rocket_LAN" target="_blank" rel="noopener">Wishlist
+        the Steam page</a> and you'll get a Steam notification the moment
+        it goes live.
       </div>
     </div>
 
@@ -58,9 +62,9 @@
         <div class="card">
           <h3>Sessions over Steam</h3>
           <p>
-            Host a session, invite Steam friends in a click, and they're in.
-            Friends see your session in their Rocket LAN lobby and can
-            jump straight in. No IP addresses, no port-forwarding.
+            Host a session, invite Steam friends in a click, they're in.
+            Friends see your session in their Rocket LAN lobby and can jump
+            straight in. No IP addresses, no port-forwarding.
           </p>
         </div>
         <div class="card">
@@ -72,36 +76,36 @@
           </p>
         </div>
         <div class="card">
+          <h3>Workshop textures handled</h3>
+          <p>
+            A lot of custom maps depend on Workshop's cooked texture set.
+            Rocket LAN downloads and syncs that set automatically when
+            anyone in the session needs it, no manual file copying.
+          </p>
+        </div>
+        <div class="card">
           <h3>EAC-compatible</h3>
           <p>
             Works whether you launch Rocket League with Easy Anti-Cheat on
-            or off. Rocket LAN doesn't inject, hook, or patch the game —
-            it just makes Rocket League's existing LAN mode usable.
+            or off. Rocket LAN doesn't inject into the game; everything
+            happens outside Rocket League's process.
           </p>
         </div>
         <div class="card">
           <h3>Map Maker mode</h3>
           <p>
             Building a map? Point Rocket LAN at your <code>.udk</code> or
-            <code>.upk</code> file and it'll hot-swap it into the slot
-            every time you save. Iterate in Rocket League at the speed
-            you iterate in the editor.
+            <code>.upk</code> file and it hot-swaps it into the slot every
+            time you save. Iterate in Rocket League at the speed you
+            iterate in the editor.
           </p>
         </div>
         <div class="card">
           <h3>Community map browser</h3>
           <p>
             Browse the BakkesPlugins community library without leaving
-            Rocket LAN. Search, preview, favorite, download. Your
-            library stays organized.
-          </p>
-        </div>
-        <div class="card">
-          <h3>In-game overlay</h3>
-          <p>
-            A small overlay keeps the session roster, the current map, and
-            the host-only "swap map" control one keystroke away while
-            you're in Rocket League.
+            Rocket LAN. Search, preview, favorite, download. Your library
+            stays organized.
           </p>
         </div>
       </div>
@@ -109,16 +113,56 @@
 
     <section>
       <h2>See it in action</h2>
-      <div class="screenshot-placeholder" aria-hidden="true">
-        [TODO: hero screenshot of the Session view with a custom map loaded —<br/>
-        ideally with a roster of 3–4 peers and the map preview visible]
-      </div>
       <p class="hero-lede">
-        We'll publish a short walk-through video here closer to general
-        availability. For now: drop into the
-        <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions/categories/show-and-tell">Show
-        and tell</a> tab to see clips from sessions early testers have run.
+        Use the arrows or swipe to flip through. Slides are screenshots
+        from the app and from a session in progress.
       </p>
+
+      <div
+        class="slideshow"
+        role="region"
+        aria-label="Rocket LAN screenshots"
+        aria-roledescription="carousel"
+      >
+        <button
+          class="slideshow-btn slideshow-prev"
+          type="button"
+          aria-label="Previous screenshot"
+        >&larr;</button>
+
+        <div class="slideshow-track" id="slideshow-track" tabindex="0">
+          <figure class="slide">
+            <img src="assets/session_hosting.jpg" alt="Rocket LAN's Session view: a custom map preview on the left, connection info and 'Hide overlay' / 'Leave Session' actions, a 3-player roster, and a Steam friends panel on the right." loading="lazy" />
+            <figcaption>Session view, hosting with two friends connected.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="assets/host_session_modal.jpg" alt="Host Session modal: a 'Allow guests to invite friends' toggle and the currently loaded custom map, with 'Host (Invite Only)' and 'Host (Open to Friends)' buttons." loading="lazy" />
+            <figcaption>Hosting flow: pick invite-only or open to friends.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="assets/steam_invite.jpg" alt="A Steam chat overlay showing 'pseudopericyclic invited you to play Rocket LAN' with a green 'Play Game' button, sitting in front of the Rocket LAN lobby." loading="lazy" />
+            <figcaption>Invites delivered natively through Steam.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="assets/map_library.jpg" alt="The Map Library page with a grid of custom maps, source/sort filters at the top, and the pinned controls bar showing 'Download Community Maps' and 'Import Map'." loading="lazy" />
+            <figcaption>Your map library, sortable and filterable.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="assets/map_download.jpg" alt="A community map detail modal: 'Minecraft Oasis - Standard & Hide Map by Morphew' with a preview image, gamemode tags, description, and 'Download (48.0 MB)' button." loading="lazy" />
+            <figcaption>Community browser, download from BakkesPlugins in app.</figcaption>
+          </figure>
+          <figure class="slide">
+            <img src="assets/parkour_map_overlay.jpg" alt="In-game Rocket League screenshot on an Egyptian parkour custom map; the Rocket LAN overlay floats at the top-right showing current map, two connected players, and their match/menu status." loading="lazy" />
+            <figcaption>In-game overlay, current map and player status at a glance.</figcaption>
+          </figure>
+        </div>
+
+        <button
+          class="slideshow-btn slideshow-next"
+          type="button"
+          aria-label="Next screenshot"
+        >&rarr;</button>
+      </div>
     </section>
 
     <section>
@@ -126,7 +170,7 @@
       <div class="feature-grid">
         <div class="card">
           <h3>Does it work with EAC on?</h3>
-          <p>Yes. Rocket LAN doesn't touch the running game; it's compatible with EAC enabled.</p>
+          <p>Yes. Rocket LAN doesn't inject into the game, so it's compatible with EAC enabled.</p>
         </div>
         <div class="card">
           <h3>Will it get me banned?</h3>
@@ -139,14 +183,14 @@
         <div class="card">
           <h3>Do my friends need it too?</h3>
           <p>
-            Yes — each player needs Rocket LAN installed and Rocket League
+            Yes, each player needs Rocket LAN installed and Rocket League
             owned (Steam or Epic). Joining is one click; nobody fiddles
             with config.
           </p>
         </div>
       </div>
       <p style="text-align: center; margin-top: var(--space-5);">
-        <a class="btn" href="faq.html">Read the full FAQ →</a>
+        <a class="btn" href="faq.html">Read the full FAQ &rarr;</a>
       </p>
     </section>
   </main>
@@ -157,6 +201,7 @@
         <strong>Rocket LAN</strong> · independent, fan-made, free
       </div>
       <div class="footer-links">
+        <a href="https://store.steampowered.com/app/3183610/Rocket_LAN" target="_blank" rel="noopener">Steam page</a>
         <a href="faq.html">FAQ</a>
         <a href="roadmap.html">Roadmap</a>
         <a href="privacy.html">Privacy</a>
@@ -170,5 +215,38 @@
       "Rocket League" is a trademark of Psyonix LLC.
     </div>
   </footer>
+
+  <script>
+    // Coverflow-style slideshow: snap-scroll horizontally, with prev/next
+    // buttons scrolling exactly one slide at a time. The CSS in styles.css
+    // handles the center-focus + side-peek visual via scroll-snap and
+    // generous side padding on the track.
+    (function () {
+      var track = document.getElementById("slideshow-track");
+      if (!track) return;
+      var prev = document.querySelector(".slideshow-prev");
+      var next = document.querySelector(".slideshow-next");
+
+      function slideWidth() {
+        var slide = track.querySelector(".slide");
+        if (!slide) return track.clientWidth;
+        // Width + flex gap (16px from --space-4 in CSS).
+        return slide.getBoundingClientRect().width + 16;
+      }
+
+      function scrollBy(direction) {
+        track.scrollBy({ left: direction * slideWidth(), behavior: "smooth" });
+      }
+
+      if (prev) prev.addEventListener("click", function () { scrollBy(-1); });
+      if (next) next.addEventListener("click", function () { scrollBy(1); });
+
+      // Arrow keys when the track is focused.
+      track.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowLeft") { e.preventDefault(); scrollBy(-1); }
+        else if (e.key === "ArrowRight") { e.preventDefault(); scrollBy(1); }
+      });
+    })();
+  </script>
 </body>
 </html>

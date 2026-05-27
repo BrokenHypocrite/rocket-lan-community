@@ -3,9 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Features — Rocket LAN</title>
-  <meta name="description" content="What Rocket LAN does, in detail: sessions, map sync, Map Maker mode, Workshop and community maps, the in-game overlay, and more." />
+  <title>Features, Rocket LAN</title>
+  <meta name="description" content="What Rocket LAN does, in detail: sessions, map sync, Workshop texture auto-sync, Map Maker mode, community maps, the in-game overlay, and more." />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/32x32.png" />
+  <link rel="icon" href="assets/icons/icon.ico" />
 </head>
 <body>
   <nav class="site-nav" aria-label="Primary">
@@ -24,9 +26,10 @@
   <main class="container prose">
     <h1>Features</h1>
     <p class="hero-lede">
-      Rocket LAN is a thin layer that makes Rocket League's existing LAN match
-      mode work over the internet — and adds the convenience around it that
-      a real LAN party gives you for free. Here's what ships today.
+      Rocket LAN is a Steam companion app that makes Rocket League's
+      existing LAN match mode work over the internet, and adds the
+      convenience around it that a real LAN party gives you for free.
+      Here's what ships at launch.
     </p>
 
     <section>
@@ -43,9 +46,10 @@
       <h2>Custom maps</h2>
       <ul>
         <li><strong>Bring your own.</strong> Import any <code>.udk</code>/<code>.upk</code> from disk; it shows up in your library with a thumbnail.</li>
-        <li><strong>Workshop integration.</strong> Maps you've subscribed to on the Steam Workshop appear in your library automatically; Rocket LAN handles the cooked-asset texture set that Workshop maps need.</li>
+        <li><strong>Workshop integration.</strong> Maps you've subscribed to on the Steam Workshop appear in your library automatically.</li>
+        <li><strong>Workshop texture auto-sync.</strong> A lot of custom maps depend on Workshop's cooked texture set to render correctly. Rocket LAN detects when those textures are missing and downloads them in the background, then keeps them synced peer-to-peer so a friend who joins without the set gets it from someone in the session who has it. No copying files into <code>TAGame\CookedPCConsole</code> by hand, ever.</li>
         <li><strong>Community map browser.</strong> Browse, search, preview, and download from the BakkesPlugins community library without leaving the app. Favorites and sort options are first-class.</li>
-        <li><strong>Map sync on the fly.</strong> When the host picks a map, Rocket LAN streams it (BLAKE3-hashed bundle) to every connected peer. Local match? Skipped — Rocket LAN spots that you already have the file.</li>
+        <li><strong>Map sync on the fly.</strong> When the host picks a map, Rocket LAN streams it (BLAKE3-hashed bundle) to every connected peer. Local match? Skipped, Rocket LAN spots that you already have the file.</li>
         <li><strong>Auto-download toggle.</strong> Default is "yes, just download what the host picks"; flip it off to be prompted each time. Either way, hash-matched local copies are reused.</li>
       </ul>
     </section>
@@ -53,9 +57,9 @@
     <section>
       <h2>Map Maker mode</h2>
       <ul>
-        <li><strong>Pick your source file</strong> — your in-progress <code>.udk</code>/<code>.upk</code>. Rocket LAN watches it on disk.</li>
+        <li><strong>Pick your source file</strong>, your in-progress <code>.udk</code>/<code>.upk</code>. Rocket LAN watches it on disk.</li>
         <li><strong>Hot swap on save.</strong> Every time the file changes, Rocket LAN copies it into the right slot. Restart the level in Rocket League and you're testing the new cook.</li>
-        <li><strong>Survives app restarts.</strong> Your Map Maker session resumes automatically next time you launch Rocket LAN — no re-enabling, no re-pointing.</li>
+        <li><strong>Survives app restarts.</strong> Your Map Maker session resumes automatically next time you launch Rocket LAN, no re-enabling, no re-pointing.</li>
       </ul>
     </section>
 
@@ -64,19 +68,20 @@
       <ul>
         <li><strong>Always-on-top companion</strong> window: roster, current session map, host-only swap-map control. Toggle with <kbd>Ctrl + Shift + O</kbd>.</li>
         <li><strong>Steam avatars</strong> for every peer (and you).</li>
-        <li><strong>Live match status</strong> per peer — in menus, in lobby, in match — so the host knows when it's safe to swap maps mid-session.</li>
+        <li><strong>Live match status</strong> per peer, in menus, in lobby, in match, so the host knows when it's safe to swap maps mid-session.</li>
       </ul>
     </section>
 
     <section>
       <h2>The app itself</h2>
       <ul>
-        <li><strong>EAC-compatible.</strong> Rocket LAN does not inject, hook, or patch Rocket League. Launch with Easy Anti-Cheat on, off, or whatever your usual setup is — it works.</li>
+        <li><strong>Distributed on Steam.</strong> Rocket LAN is a Steam app, no installer hunt, no downloads-from-random-places. (No plans to ship outside Steam right now; open to it if there's demand.)</li>
+        <li><strong>EAC-compatible.</strong> Rocket LAN does not inject into the game, hook, or patch Rocket League. Launch with Easy Anti-Cheat on, off, or whatever your usual setup is, it works.</li>
         <li><strong>No telemetry.</strong> No analytics, no crash reporting, no servers operated by the developer. <a href="privacy.html">Privacy details &rarr;</a></li>
         <li><strong>Free.</strong> No price, no tiers, no microtransactions.</li>
         <li><strong>Custom themes.</strong> Built-in Dark and Light, plus a per-token theme editor for the bold. Export/import themes as small JSON files.</li>
         <li><strong>Steam <em>and</em> Epic launches.</strong> Rocket LAN finds your Rocket League install automatically, on either store.</li>
-        <li><strong>Diagnostic install scan</strong> for when auto-detection misses your install — point Rocket LAN at the folder yourself.</li>
+        <li><strong>Diagnostic install scan</strong> for when auto-detection misses your install, point Rocket LAN at the folder yourself.</li>
       </ul>
     </section>
 

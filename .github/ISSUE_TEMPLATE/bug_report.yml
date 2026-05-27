@@ -11,14 +11,16 @@ body:
         Before you submit:
         - Check [open issues](../../issues?q=is%3Aissue) for an existing report.
         - For questions or "is this supposed to work?", open a [Discussion](../../discussions/new?category=q-a) instead.
-        - For security issues, please **don't** file a public issue — see [SECURITY.md](../../blob/main/SECURITY.md).
+        - For security issues, please **don't** file a public issue, see [SECURITY.md](../../blob/main/SECURITY.md).
 
   - type: input
     id: version
     attributes:
-      label: Rocket LAN version
-      description: Find it in Settings → About, or on the title bar.
-      placeholder: e.g. 0.1.0
+      label: Rocket LAN build ID
+      description: |
+        In Steam, right-click Rocket LAN in your library, go to Properties → Updates,
+        and copy the "BuildID" value at the bottom (e.g. BuildID 23423378).
+      placeholder: e.g. BuildID 23423378
     validations:
       required: true
 
@@ -40,8 +42,8 @@ body:
     attributes:
       label: Was Easy Anti-Cheat (EAC) enabled when this happened?
       options:
-        - "Yes — EAC on"
-        - "No — EAC off"
+        - "Yes, EAC on"
+        - "No, EAC off"
         - "Not sure"
         - "Doesn't apply / RL wasn't running"
     validations:
@@ -60,7 +62,7 @@ body:
     id: what-happened
     attributes:
       label: What happened?
-      description: A clear, concrete description of the bug. Screenshots help — drag them into the box.
+      description: A clear, concrete description of the bug. Screenshots help, drag them into the box.
       placeholder: When I tried to..., Rocket LAN did...
     validations:
       required: true

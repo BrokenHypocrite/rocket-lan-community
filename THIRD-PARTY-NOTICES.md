@@ -1,8 +1,8 @@
 # Third-Party Notices
 
 Rocket LAN's application redistributes the third-party components listed
-below. The notable components — the bundled GPLv2 network driver, Valve's
-Steamworks SDK, and the bundled fonts — warrant individual explanation
+below. The notable components, the bundled GPLv2 network driver, Valve's
+Steamworks SDK, and the bundled fonts, warrant individual explanation
 here. The full auto-generated dependency lists (every Rust crate and every
 production npm package compiled into the shipped binary, with verbatim
 license text) ship inside the application and are reachable from
@@ -13,7 +13,7 @@ notices. It is reproduced verbatim from the in-app notices screen.
 
 ---
 
-## tap-windows6 — virtual network adapter driver
+## tap-windows6, virtual network adapter driver
 
 Rocket LAN bundles and installs OpenVPN's **tap-windows6** NDIS 6 TAP
 virtual network driver. It is the layer-2 virtual Ethernet adapter over
@@ -59,7 +59,7 @@ a WHQL submission.
 
 ---
 
-## Steamworks SDK — Valve's Steam integration library
+## Steamworks SDK, Valve's Steam integration library
 
 Rocket LAN integrates with Steam (friends list, identities, invites, rich
 presence, ownership checks) through Valve's **Steamworks SDK**. It links
@@ -69,7 +69,7 @@ application bundles Valve's redistributable runtime library
 
 - **Component:** Steamworks SDK (incl. `steam_api64.dll`)
 - **Copyright:** © Valve Corporation. All rights reserved.
-- **License:** Valve's **Steamworks SDK Access Agreement** — this is
+- **License:** Valve's **Steamworks SDK Access Agreement**, this is
   Valve's own proprietary SDK license. It is **not** an open-source
   license.
 
@@ -81,22 +81,22 @@ Steamworks SDK Access Agreement:
 <https://partner.steamgames.com/documentation/sdk_access_agreement>
 
 The `steamworks` and `steamworks-sys` Rust crates are open-source Rust
-*bindings* to the SDK (MIT licensed — see the in-app full notices); the
+*bindings* to the SDK (MIT licensed, see the in-app full notices); the
 underlying Steamworks SDK itself remains under Valve's terms above.
 
 ---
 
-## Bundled fonts — SIL Open Font License
+## Bundled fonts, SIL Open Font License
 
 Rocket LAN ships two typeface families as application assets. The font
 files themselves are licensed under the **SIL Open Font License, Version
 1.1 (OFL-1.1)**, which requires the copyright notice and license to be
 reproduced with any redistribution of the Font Software:
 
-- **Space Grotesk** — © 2020 The Space Grotesk Project Authors
+- **Space Grotesk**, © 2020 The Space Grotesk Project Authors
   (<https://github.com/floriankarsten/space-grotesk>). Delivered via the
   npm package `@fontsource/space-grotesk`.
-- **JetBrains Mono** — © 2020 The JetBrains Mono Project Authors
+- **JetBrains Mono**, © 2020 The JetBrains Mono Project Authors
   (<https://github.com/JetBrains/JetBrainsMono>). Delivered via the npm
   package `@fontsource/jetbrains-mono`.
 
@@ -115,4 +115,4 @@ Use](./TERMS.md) for the license that governs your use of the application.
 ---
 
 *If you spot an attribution that's missing or out of date, please open an
-[issue](../../issues) — we'd rather hear about it than not.*
+[issue](../../issues), we'd rather hear about it than not.*

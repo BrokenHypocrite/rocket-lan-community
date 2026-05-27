@@ -16,8 +16,8 @@ no grant of rights to the Rocket LAN application is made here.
 
 ## License for the content in this repository
 
-The website content under [`/docs`](./docs/) — copy, layout, the original
-prose in the FAQ / roadmap / privacy pages — and the project documents at
+The website content under [`/docs`](./docs/), copy, layout, the original
+prose in the FAQ / roadmap / privacy pages, and the project documents at
 the repo root ([`README.md`](./README.md), [`TERMS.md`](./TERMS.md),
 [`THIRD-PARTY-NOTICES.md`](./THIRD-PARTY-NOTICES.md),
 [`SECURITY.md`](./SECURITY.md), this file) are licensed under
@@ -25,8 +25,8 @@ the repo root ([`README.md`](./README.md), [`TERMS.md`](./TERMS.md),
 ([CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)).
 
 You may quote, adapt, and redistribute that content for **non-commercial**
-purposes with attribution to the Rocket LAN project. Commercial reuse — for
-example, lifting copy into a competing or for-profit product page — requires
+purposes with attribution to the Rocket LAN project. Commercial reuse, for
+example, lifting copy into a competing or for-profit product page, requires
 permission.
 
 Screenshots and any video clips placed under [`/docs/assets/`](./docs/assets/)
@@ -36,9 +36,9 @@ Miller and are made available under the same CC BY-NC 4.0 terms.
 ## Third-party notices
 
 Rocket LAN bundles third-party components in the shipped application. The
-required notices — including the GPLv2 obligations for the bundled
+required notices, including the GPLv2 obligations for the bundled
 tap-windows6 network driver, Valve's Steamworks SDK terms, and the SIL Open
-Font License for the bundled typefaces — are reproduced in
+Font License for the bundled typefaces, are reproduced in
 [`THIRD-PARTY-NOTICES.md`](./THIRD-PARTY-NOTICES.md).
 
 ## Trademarks

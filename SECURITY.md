@@ -22,7 +22,7 @@ there.
 
 If GitHub Security Advisories isn't workable for you, email:
 
-> **`<TODO: SECURITY EMAIL>`** &nbsp;*(placeholder — fill in before going public)*
+> **`<TODO: SECURITY EMAIL>`** &nbsp;*(placeholder, fill in before going public)*
 
 Encrypt with PGP if you'd prefer; key fingerprint will be published here
 once one exists.
@@ -42,14 +42,14 @@ The more of this you can hand us, the faster we can act:
 
 We're particularly interested in reports involving:
 
-- **Network and peer-to-peer** — anything that lets a remote peer execute
+- **Network and peer-to-peer**, anything that lets a remote peer execute
   code, read or modify files outside the session sandbox, or escalate from
   a connected peer to a fuller attack on the host.
-- **The bundled tap-windows6 driver installation flow** — abuse of the
+- **The bundled tap-windows6 driver installation flow**, abuse of the
   one-time elevated install step.
-- **Steam integration** — confused-deputy attacks via the rich-presence
+- **Steam integration**, confused-deputy attacks via the rich-presence
   `connect` field, invite handling, or Steam ID spoofing.
-- **Map sync** — path traversal or file-overwrite attacks via the
+- **Map sync**, path traversal or file-overwrite attacks via the
   custom-map bundle stream.
 - **Local privilege escalation** during install, uninstall, or update.
 

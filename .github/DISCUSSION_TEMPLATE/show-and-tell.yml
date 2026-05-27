@@ -4,7 +4,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Match clips, custom maps you've made, screenshots, tournament setups, weird/cool things you've used Rocket LAN for — all welcome.
+        Match clips, custom maps you've made, screenshots, tournament setups, weird/cool things you've used Rocket LAN for, all welcome.
   - type: textarea
     id: what
     attributes:
