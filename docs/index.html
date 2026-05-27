@@ -297,20 +297,26 @@
 
       function positionTrack() {
         // Translate the track so the active slide sits dead-center in the
-        // viewport. The active slide's width + the flex gap drives the math;
-        // we measure both at runtime so a viewport resize or font shift
-        // doesn't desync the offset.
+        // viewport.
+        //
+        // IMPORTANT: use `offsetWidth`, not `getBoundingClientRect().width`.
+        // The slides have a `transform: scale(...)` applied (the dim/peek
+        // effect), and getBoundingClientRect returns the *post-transform*
+        // visual width. Layout positions are driven by the un-transformed
+        // box width, so summing visual widths would under-count by ~15%
+        // per non-active slide and the offset error would compound, pushing
+        // later slides progressively right of center until slide 6 sat
+        // half-clipped at the viewport edge.
         var viewport = track.parentElement;
         var viewportWidth = viewport.clientWidth;
         var active = slides[current];
-        var slideRect = active.getBoundingClientRect();
-        var slideWidth = slideRect.width;
+        var slideWidth = active.offsetWidth;
         var styles = window.getComputedStyle(track);
         var gap = parseFloat(styles.columnGap || styles.gap || "0");
-        // Sum of widths + gaps for slides BEFORE the active one.
+        // Sum of layout widths + gaps for slides BEFORE the active one.
         var precedingWidth = 0;
         for (var i = 0; i < current; i++) {
-          precedingWidth += slides[i].getBoundingClientRect().width + gap;
+          precedingWidth += slides[i].offsetWidth + gap;
         }
         var targetOffset = (viewportWidth - slideWidth) / 2 - precedingWidth;
         track.style.transform = "translateX(" + targetOffset + "px)";
