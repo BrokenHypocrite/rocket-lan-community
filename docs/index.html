@@ -120,48 +120,52 @@
 
       <div
         class="slideshow"
+        id="slideshow"
         role="region"
         aria-label="Rocket LAN screenshots"
         aria-roledescription="carousel"
       >
+        <div class="slideshow-viewport">
+          <div class="slideshow-track" id="slideshow-track">
+            <figure class="slide" data-index="0">
+              <img src="assets/session_hosting.jpg" alt="Rocket LAN's Session view: a custom map preview on the left, connection info and 'Hide overlay' / 'Leave Session' actions, a 3-player roster, and a Steam friends panel on the right." loading="eager" />
+              <figcaption>Session view, hosting with two friends connected.</figcaption>
+            </figure>
+            <figure class="slide" data-index="1">
+              <img src="assets/host_session_modal.jpg" alt="Host Session modal: a 'Allow guests to invite friends' toggle and the currently loaded custom map, with 'Host (Invite Only)' and 'Host (Open to Friends)' buttons." loading="lazy" />
+              <figcaption>Hosting flow: pick invite-only or open to friends.</figcaption>
+            </figure>
+            <figure class="slide" data-index="2">
+              <img src="assets/steam_invite.jpg" alt="A Steam chat overlay showing 'pseudopericyclic invited you to play Rocket LAN' with a green 'Play Game' button, sitting in front of the Rocket LAN lobby." loading="lazy" />
+              <figcaption>Invites delivered natively through Steam.</figcaption>
+            </figure>
+            <figure class="slide" data-index="3">
+              <img src="assets/map_library.jpg" alt="The Map Library page with a grid of custom maps, source/sort filters at the top, and the pinned controls bar showing 'Download Community Maps' and 'Import Map'." loading="lazy" />
+              <figcaption>Your map library, sortable and filterable.</figcaption>
+            </figure>
+            <figure class="slide" data-index="4">
+              <img src="assets/map_download.jpg" alt="A community map detail modal: 'Minecraft Oasis - Standard & Hide Map by Morphew' with a preview image, gamemode tags, description, and 'Download (48.0 MB)' button." loading="lazy" />
+              <figcaption>Community browser, download from BakkesPlugins in app.</figcaption>
+            </figure>
+            <figure class="slide" data-index="5">
+              <img src="assets/parkour_map_overlay.jpg" alt="In-game Rocket League screenshot on an Egyptian parkour custom map; the Rocket LAN overlay floats at the top-right showing current map, two connected players, and their match/menu status." loading="lazy" />
+              <figcaption>In-game overlay, current map and player status at a glance.</figcaption>
+            </figure>
+          </div>
+        </div>
+
         <button
           class="slideshow-btn slideshow-prev"
           type="button"
           aria-label="Previous screenshot"
         >&larr;</button>
-
-        <div class="slideshow-track" id="slideshow-track" tabindex="0">
-          <figure class="slide">
-            <img src="assets/session_hosting.jpg" alt="Rocket LAN's Session view: a custom map preview on the left, connection info and 'Hide overlay' / 'Leave Session' actions, a 3-player roster, and a Steam friends panel on the right." loading="lazy" />
-            <figcaption>Session view, hosting with two friends connected.</figcaption>
-          </figure>
-          <figure class="slide">
-            <img src="assets/host_session_modal.jpg" alt="Host Session modal: a 'Allow guests to invite friends' toggle and the currently loaded custom map, with 'Host (Invite Only)' and 'Host (Open to Friends)' buttons." loading="lazy" />
-            <figcaption>Hosting flow: pick invite-only or open to friends.</figcaption>
-          </figure>
-          <figure class="slide">
-            <img src="assets/steam_invite.jpg" alt="A Steam chat overlay showing 'pseudopericyclic invited you to play Rocket LAN' with a green 'Play Game' button, sitting in front of the Rocket LAN lobby." loading="lazy" />
-            <figcaption>Invites delivered natively through Steam.</figcaption>
-          </figure>
-          <figure class="slide">
-            <img src="assets/map_library.jpg" alt="The Map Library page with a grid of custom maps, source/sort filters at the top, and the pinned controls bar showing 'Download Community Maps' and 'Import Map'." loading="lazy" />
-            <figcaption>Your map library, sortable and filterable.</figcaption>
-          </figure>
-          <figure class="slide">
-            <img src="assets/map_download.jpg" alt="A community map detail modal: 'Minecraft Oasis - Standard & Hide Map by Morphew' with a preview image, gamemode tags, description, and 'Download (48.0 MB)' button." loading="lazy" />
-            <figcaption>Community browser, download from BakkesPlugins in app.</figcaption>
-          </figure>
-          <figure class="slide">
-            <img src="assets/parkour_map_overlay.jpg" alt="In-game Rocket League screenshot on an Egyptian parkour custom map; the Rocket LAN overlay floats at the top-right showing current map, two connected players, and their match/menu status." loading="lazy" />
-            <figcaption>In-game overlay, current map and player status at a glance.</figcaption>
-          </figure>
-        </div>
-
         <button
           class="slideshow-btn slideshow-next"
           type="button"
           aria-label="Next screenshot"
         >&rarr;</button>
+
+        <div class="slideshow-dots" id="slideshow-dots" role="tablist" aria-label="Choose screenshot"></div>
       </div>
     </section>
 
@@ -217,35 +221,141 @@
   </footer>
 
   <script>
-    // Coverflow-style slideshow: snap-scroll horizontally, with prev/next
-    // buttons scrolling exactly one slide at a time. The CSS in styles.css
-    // handles the center-focus + side-peek visual via scroll-snap and
-    // generous side padding on the track.
+    // Coverflow-style slideshow.
+    //
+    // Layout: the track is a horizontal flex strip wider than the viewport.
+    // We translate the whole strip so the active slide lands in the center
+    // of the viewport, and tag the active slide and its two neighbors with
+    // `is-active` / `is-adjacent` so the CSS can spotlight the focused one
+    // and dim the rest. Pure JS-driven (no `animation-timeline` reliance),
+    // so it works in Firefox, Safari, and older Chromium the same way.
+    //
+    // Auto-advances every 6 seconds. Hover, focus, or any user interaction
+    // (button click, dot click, arrow key) pauses the rotation for 12s so
+    // the user has time to read; it resumes after that idle window.
     (function () {
+      var slideshow = document.getElementById("slideshow");
       var track = document.getElementById("slideshow-track");
-      if (!track) return;
-      var prev = document.querySelector(".slideshow-prev");
-      var next = document.querySelector(".slideshow-next");
+      var dotsHost = document.getElementById("slideshow-dots");
+      if (!slideshow || !track) return;
 
-      function slideWidth() {
-        var slide = track.querySelector(".slide");
-        if (!slide) return track.clientWidth;
-        // Width + flex gap (16px from --space-4 in CSS).
-        return slide.getBoundingClientRect().width + 16;
+      var slides = Array.prototype.slice.call(track.querySelectorAll(".slide"));
+      if (slides.length === 0) return;
+
+      var prevBtn = slideshow.querySelector(".slideshow-prev");
+      var nextBtn = slideshow.querySelector(".slideshow-next");
+
+      var current = 0;
+      var AUTO_MS = 6000;
+      var PAUSE_AFTER_INPUT_MS = 12000;
+      var autoTimer = null;
+      var pausedUntil = 0;
+
+      // Build pagination dots.
+      var dots = [];
+      if (dotsHost) {
+        slides.forEach(function (_, i) {
+          var dot = document.createElement("button");
+          dot.type = "button";
+          dot.className = "slideshow-dot";
+          dot.setAttribute("role", "tab");
+          dot.setAttribute("aria-label", "Show screenshot " + (i + 1) + " of " + slides.length);
+          dot.addEventListener("click", function () {
+            pauseAuto();
+            goTo(i);
+          });
+          dotsHost.appendChild(dot);
+          dots.push(dot);
+        });
       }
 
-      function scrollBy(direction) {
-        track.scrollBy({ left: direction * slideWidth(), behavior: "smooth" });
+      function applyClasses() {
+        slides.forEach(function (slide, i) {
+          slide.classList.remove("is-active", "is-adjacent");
+          if (i === current) slide.classList.add("is-active");
+          else if (Math.abs(i - current) === 1) slide.classList.add("is-adjacent");
+          slide.setAttribute("aria-hidden", i === current ? "false" : "true");
+        });
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle("is-active", i === current);
+          dot.setAttribute("aria-selected", i === current ? "true" : "false");
+        });
       }
 
-      if (prev) prev.addEventListener("click", function () { scrollBy(-1); });
-      if (next) next.addEventListener("click", function () { scrollBy(1); });
+      function positionTrack() {
+        // Translate the track so the active slide sits dead-center in the
+        // viewport. The active slide's width + the flex gap drives the math;
+        // we measure both at runtime so a viewport resize or font shift
+        // doesn't desync the offset.
+        var viewport = track.parentElement;
+        var viewportWidth = viewport.clientWidth;
+        var active = slides[current];
+        var slideRect = active.getBoundingClientRect();
+        var slideWidth = slideRect.width;
+        var styles = window.getComputedStyle(track);
+        var gap = parseFloat(styles.columnGap || styles.gap || "0");
+        // Sum of widths + gaps for slides BEFORE the active one.
+        var precedingWidth = 0;
+        for (var i = 0; i < current; i++) {
+          precedingWidth += slides[i].getBoundingClientRect().width + gap;
+        }
+        var targetOffset = (viewportWidth - slideWidth) / 2 - precedingWidth;
+        track.style.transform = "translateX(" + targetOffset + "px)";
+      }
 
-      // Arrow keys when the track is focused.
-      track.addEventListener("keydown", function (e) {
-        if (e.key === "ArrowLeft") { e.preventDefault(); scrollBy(-1); }
-        else if (e.key === "ArrowRight") { e.preventDefault(); scrollBy(1); }
+      function render() {
+        applyClasses();
+        positionTrack();
+      }
+
+      function goTo(index) {
+        if (slides.length === 0) return;
+        var n = slides.length;
+        current = ((index % n) + n) % n;
+        render();
+      }
+
+      function next() { goTo(current + 1); }
+      function prev() { goTo(current - 1); }
+
+      // Auto-advance loop.
+      function tick() {
+        if (Date.now() >= pausedUntil && !document.hidden) {
+          next();
+        }
+      }
+      function startAuto() {
+        if (autoTimer === null) {
+          autoTimer = window.setInterval(tick, AUTO_MS);
+        }
+      }
+      function pauseAuto() {
+        pausedUntil = Date.now() + PAUSE_AFTER_INPUT_MS;
+      }
+
+      // Wire up controls.
+      if (prevBtn) prevBtn.addEventListener("click", function () { pauseAuto(); prev(); });
+      if (nextBtn) nextBtn.addEventListener("click", function () { pauseAuto(); next(); });
+      slideshow.addEventListener("mouseenter", pauseAuto);
+      slideshow.addEventListener("focusin", pauseAuto);
+      slideshow.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowLeft") { e.preventDefault(); pauseAuto(); prev(); }
+        else if (e.key === "ArrowRight") { e.preventDefault(); pauseAuto(); next(); }
       });
+
+      // Recompute position when the viewport resizes (and after images
+      // finish loading, since image dimensions can affect slide width).
+      window.addEventListener("resize", positionTrack);
+      slides.forEach(function (slide) {
+        var img = slide.querySelector("img");
+        if (img && !img.complete) {
+          img.addEventListener("load", positionTrack, { once: true });
+        }
+      });
+
+      // Initial paint, then start the rotation.
+      render();
+      startAuto();
     })();
   </script>
 </body>
