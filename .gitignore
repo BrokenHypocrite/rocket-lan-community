@@ -1,0 +1,20 @@
+# OS clutter
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor clutter
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Jekyll local-preview output (only if you ever `bundle exec jekyll serve` locally)
+docs/_site/
+docs/.jekyll-cache/
+docs/.sass-cache/
+.bundle/
+vendor/
+
+# Local notes / drafts kept outside the repo
+*.local.md

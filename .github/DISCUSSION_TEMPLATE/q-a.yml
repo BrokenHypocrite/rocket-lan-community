@@ -1,0 +1,24 @@
+title: "[Q] "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Before posting, a quick scan of the [FAQ](https://BrokenHypocrite.github.io/rocket-lan-community/faq.html) and [existing Q&A discussions](../../discussions/categories/q-a) might already have your answer.
+  - type: textarea
+    id: question
+    attributes:
+      label: Your question
+      description: As specifically as you can. "Doesn't work" is hard to help with; "When I click Use on a Workshop map, the slot says Syncing… forever" is easy to help with.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Rocket LAN version (if applicable)
+      placeholder: e.g. 0.1.0
+  - type: textarea
+    id: context
+    attributes:
+      label: Anything else worth knowing
+      description: Setup details, what you've already tried, what you expected to happen.

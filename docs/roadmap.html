@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Roadmap — Rocket LAN</title>
+  <meta name="description" content="What Rocket LAN has shipped, what's in flight, and what's planned. Pre-release; updated as the project moves." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="site-nav-inner">
+      <a class="site-nav-brand" href="./">Rocket<span class="accent">&nbsp;LAN</span></a>
+      <div class="site-nav-links">
+        <a href="./">Home</a>
+        <a href="features.html">Features</a>
+        <a href="faq.html">FAQ</a>
+        <a href="roadmap.html" aria-current="page">Roadmap</a>
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions">Community</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container prose">
+    <h1>Roadmap</h1>
+    <p class="hero-lede">
+      Rocket LAN is in <strong>pre-release</strong>. This page is the source of
+      truth for what's in the box, what's actively being worked on, and what's
+      on the bench. It's hand-maintained; expect it to lag the latest build by
+      a release or two at the edges.
+    </p>
+
+    <div class="callout callout-warning">
+      <div>
+        <strong>Pre-release reality check.</strong>
+        Things will move. Items here are descriptions of intent, not
+        commitments to ship. The "planned" column especially is a snapshot
+        of current thinking, not a contract.
+      </div>
+    </div>
+
+    <h2>Now shipping</h2>
+    <p>Core capabilities that early-access builds already have.</p>
+    <div class="roadmap-cols">
+      <div class="roadmap-col card">
+        <h3>Core session flow</h3>
+        <ul>
+          <li><strong>Host &amp; join sessions</strong> via Steam friends, with open/invite-only visibility.</li>
+          <li><strong>Mesh peer-to-peer</strong> over QUIC with encrypted relay fallback.</li>
+          <li><strong>Reconnect resilience</strong> — dropped peers retry for ~30s before being removed.</li>
+          <li><strong>Steam rich presence</strong> so friends see and join you natively.</li>
+        </ul>
+      </div>
+
+      <div class="roadmap-col card">
+        <h3>Custom maps</h3>
+        <ul>
+          <li><strong>Bring-your-own import</strong> from disk, plus Workshop subscriptions.</li>
+          <li><strong>BakkesPlugins community map browser</strong> built in.</li>
+          <li><strong>Map sync</strong> with BLAKE3 hashing — local matches skip the download.</li>
+          <li><strong>Mid-session map swaps</strong> propagate the new map identity (name + preview) to peers immediately.</li>
+          <li><strong>Map Maker mode</strong> with disk-watch hot swap, resumes across app restarts.</li>
+        </ul>
+      </div>
+
+      <div class="roadmap-col card">
+        <h3>The app</h3>
+        <ul>
+          <li><strong>EAC-compatible</strong> launch path; works on Steam and Epic copies of Rocket League.</li>
+          <li><strong>In-game overlay</strong> with roster, current map, and host-only swap control.</li>
+          <li><strong>Custom themes</strong> with editor, presets, and export/import.</li>
+          <li><strong>Install diagnostic</strong> for non-standard layouts.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>In progress</h2>
+    <p>Currently being built or polished for an upcoming early-access drop.</p>
+    <div class="roadmap-cols">
+      <div class="roadmap-col card">
+        <h3>Reliability</h3>
+        <ul>
+          <li><strong>Connection edge-case hardening</strong> — long-tail NAT/firewall pairings where the relay fallback is slow to engage.</li>
+          <li><strong>Map sync resume</strong> for partially-downloaded bundles after a dropped peer.</li>
+        </ul>
+      </div>
+      <div class="roadmap-col card">
+        <h3>Onboarding</h3>
+        <ul>
+          <li><strong>First-launch tour</strong> for the host/join/invite flow.</li>
+          <li><strong>Norton / McAfee guidance</strong> in the install diagnostic when third-party firewalls block discovery.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Planned</h2>
+    <p>On the bench — order is not strict, and any of these can move.</p>
+    <div class="roadmap-cols">
+      <div class="roadmap-col card">
+        <h3>Sessions</h3>
+        <ul>
+          <li><strong>Match recording integration</strong> — generate replay metadata alongside the match files custom-map sessions produce.</li>
+          <li><strong>Host-side voting</strong> for the next map.</li>
+          <li><strong>Spectator mode</strong> for a player who joins after a match has started.</li>
+        </ul>
+      </div>
+      <div class="roadmap-col card">
+        <h3>Maps</h3>
+        <ul>
+          <li><strong>Map collections</strong> — curated sets you can swap between or share.</li>
+          <li><strong>Underpass slot</strong> as a second host-controlled custom-map slot.</li>
+        </ul>
+      </div>
+      <div class="roadmap-col card">
+        <h3>Quality of life</h3>
+        <ul>
+          <li><strong>Tournament helpers</strong> — bracket / round timers integrated into the overlay.</li>
+          <li><strong>Cross-region friend hinting</strong> when the relay path is the only option.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Not planned</h2>
+    <ul>
+      <li><strong>Any feature that enables custom maps or mods in official online matchmaking.</strong> That's a line we don't cross.</li>
+      <li><strong>Anything that injects into Rocket League's process</strong> or interferes with EAC. By design.</li>
+      <li><strong>Telemetry or analytics.</strong> No.</li>
+    </ul>
+
+    <hr/>
+    <p>
+      Have something you'd want to see that isn't here?
+      <a href="https://github.com/BrokenHypocrite/rocket-lan-community/issues/new?template=feature_request.yml">Open a feature request</a> or
+      <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions/new?category=ideas">float it as an idea</a>.
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer-inner">
+      <div><strong>Rocket LAN</strong> · independent, fan-made, free</div>
+      <div class="footer-links">
+        <a href="faq.html">FAQ</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="licenses.html">Notices</a>
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community">GitHub</a>
+      </div>
+    </div>
+    <div class="container site-footer-trademark">
+      Not affiliated with, endorsed by, sponsored by, or approved by Psyonix LLC or Epic Games, Inc.
+      "Rocket League" is a trademark of Psyonix LLC.
+    </div>
+  </footer>
+</body>
+</html>

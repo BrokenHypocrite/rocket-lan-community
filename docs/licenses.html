@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Third-Party Notices — Rocket LAN</title>
+  <meta name="description" content="Third-party components bundled in Rocket LAN: tap-windows6 (GPLv2), Steamworks SDK, and bundled fonts (OFL)." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="site-nav-inner">
+      <a class="site-nav-brand" href="./">Rocket<span class="accent">&nbsp;LAN</span></a>
+      <div class="site-nav-links">
+        <a href="./">Home</a>
+        <a href="features.html">Features</a>
+        <a href="faq.html">FAQ</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions">Community</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container prose">
+    <h1>Third-Party Notices</h1>
+    <p class="hero-lede">
+      Rocket LAN bundles a handful of third-party components in the shipped
+      application. The notable ones — the bundled GPLv2 network driver,
+      Valve's Steamworks SDK, and the bundled fonts — are reproduced below.
+      The exhaustive Rust-crate and npm-package lists ship inside the
+      application and are reachable from
+      <strong>Settings → Third-Party Notices → Full third-party notices</strong>.
+    </p>
+
+    <h2>tap-windows6 — virtual network adapter driver</h2>
+    <p>
+      Rocket LAN bundles and installs OpenVPN's <strong>tap-windows6</strong>
+      NDIS 6 TAP virtual network driver. It is the layer-2 virtual Ethernet
+      adapter over which Rocket LAN carries Rocket League's native LAN
+      traffic.
+    </p>
+    <ul>
+      <li><strong>Component:</strong> tap-windows6 (driver <code>tap0901</code>)</li>
+      <li><strong>Upstream:</strong> <a href="https://github.com/OpenVPN/tap-windows6">github.com/OpenVPN/tap-windows6</a></li>
+      <li><strong>Version redistributed:</strong> 9.27.0 (release tag <code>9.27.0</code>)</li>
+      <li><strong>Copyright:</strong> © OpenVPN Inc. and the tap-windows6 contributors</li>
+      <li><strong>License:</strong> GNU General Public License, version 2 (GPLv2)</li>
+    </ul>
+
+    <h3>License</h3>
+    <p>
+      The tap-windows6 driver is licensed under the <strong>GNU General
+      Public License, version 2</strong>. The full GPLv2 text is in the
+      file <code>COPYING</code> in the upstream repository:
+      <a href="https://github.com/OpenVPN/tap-windows6/blob/master/COPYING">github.com/OpenVPN/tap-windows6/blob/master/COPYING</a>.
+    </p>
+    <p>
+      The driver is a separate, pre-signed kernel component. It runs in its
+      own address space and is <strong>not linked into</strong> Rocket LAN's
+      user-space application, so GPLv2 does not extend to Rocket LAN's own
+      source code. Redistributing the unmodified signed driver binary does,
+      however, carry GPLv2's obligation to make the corresponding source
+      available.
+    </p>
+
+    <h3>Corresponding source code</h3>
+    <p>
+      Rocket LAN ships the tap-windows6 driver <strong>unmodified</strong>.
+      The complete corresponding source code for the redistributed version
+      (9.27.0) is the upstream tagged release, publicly and permanently
+      available at:
+    </p>
+    <blockquote>
+      <strong><a href="https://github.com/OpenVPN/tap-windows6/releases/tag/9.27.0">github.com/OpenVPN/tap-windows6/releases/tag/9.27.0</a></strong>
+    </blockquote>
+    <p>
+      The vendored header <code>tap-windows.h</code> is additionally
+      available under the MIT license; it is included only as developer
+      reference for the driver's IOCTL constants and is not compiled into
+      Rocket LAN.
+    </p>
+
+    <h3>Signing</h3>
+    <p>
+      <code>tap0901.sys</code> and <code>tap0901.cat</code> are signed by
+      Microsoft through the Windows Hardware Compatibility Program. Because
+      the driver is WHQL-signed, Rocket LAN does <strong>not</strong> need
+      its own kernel-driver signing certificate or a WHQL submission.
+    </p>
+
+    <hr />
+
+    <h2>Steamworks SDK — Valve's Steam integration library</h2>
+    <p>
+      Rocket LAN integrates with Steam (friends list, identities, invites,
+      rich presence, ownership checks) through Valve's <strong>Steamworks
+      SDK</strong>. It links the <code>steamworks</code> and
+      <code>steamworks-sys</code> Rust crates, and the shipped application
+      bundles Valve's redistributable runtime library
+      <strong><code>steam_api64.dll</code></strong>.
+    </p>
+    <ul>
+      <li><strong>Component:</strong> Steamworks SDK (incl. <code>steam_api64.dll</code>)</li>
+      <li><strong>Copyright:</strong> © Valve Corporation. All rights reserved.</li>
+      <li><strong>License:</strong> Valve's <strong>Steamworks SDK Access Agreement</strong> — this is Valve's own proprietary SDK license. It is <strong>not</strong> an open-source license.</li>
+    </ul>
+    <p>
+      The Steamworks SDK is provided by Valve to Steamworks partners for the
+      purpose of integrating their applications with Steam.
+      <code>steam_api64.dll</code> is Valve's redistributable component and
+      is shipped unmodified. The SDK and its redistributable are used
+      under, and remain governed by, the Steamworks SDK Access Agreement:
+      <a href="https://partner.steamgames.com/documentation/sdk_access_agreement">partner.steamgames.com/documentation/sdk_access_agreement</a>.
+    </p>
+    <p>
+      The <code>steamworks</code> and <code>steamworks-sys</code> Rust
+      crates are open-source Rust <em>bindings</em> to the SDK (MIT licensed
+      — see the in-app full notices); the underlying Steamworks SDK itself
+      remains under Valve's terms above.
+    </p>
+
+    <hr />
+
+    <h2>Bundled fonts — SIL Open Font License</h2>
+    <p>
+      Rocket LAN ships two typeface families as application assets. The
+      font files themselves are licensed under the <strong>SIL Open Font
+      License, Version 1.1 (OFL-1.1)</strong>, which requires the copyright
+      notice and license to be reproduced with any redistribution of the
+      Font Software:
+    </p>
+    <ul>
+      <li><strong>Space Grotesk</strong> — © 2020 The Space Grotesk Project Authors (<a href="https://github.com/floriankarsten/space-grotesk">github.com/floriankarsten/space-grotesk</a>). Delivered via the npm package <code>@fontsource/space-grotesk</code>.</li>
+      <li><strong>JetBrains Mono</strong> — © 2020 The JetBrains Mono Project Authors (<a href="https://github.com/JetBrains/JetBrainsMono">github.com/JetBrains/JetBrainsMono</a>). Delivered via the npm package <code>@fontsource/jetbrains-mono</code>.</li>
+    </ul>
+    <p>
+      The full SIL Open Font License v1.1 text for both fonts is reproduced
+      verbatim in the in-app full notices screen, under the
+      <code>@fontsource/space-grotesk</code> and
+      <code>@fontsource/jetbrains-mono</code> entries.
+    </p>
+
+    <hr />
+
+    <h2>Rocket LAN application</h2>
+    <p>
+      The Rocket LAN application itself is <strong>proprietary</strong>
+      software, copyright © 2026 Bryan J Miller. All rights reserved. See
+      the <a href="terms.html">Terms of Use</a> for the license that governs
+      your use of the application.
+    </p>
+
+    <p style="margin-top: var(--space-6); color: var(--text-dim);">
+      If you spot an attribution that's missing or out of date, please
+      <a href="https://github.com/BrokenHypocrite/rocket-lan-community/issues/new?template=bug_report.yml">open an issue</a>
+      — we'd rather hear about it than not.
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer-inner">
+      <div><strong>Rocket LAN</strong> · independent, fan-made, free</div>
+      <div class="footer-links">
+        <a href="faq.html">FAQ</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="licenses.html">Notices</a>
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community">GitHub</a>
+      </div>
+    </div>
+    <div class="container site-footer-trademark">
+      Not affiliated with, endorsed by, sponsored by, or approved by Psyonix LLC or Epic Games, Inc.
+      "Rocket League" is a trademark of Psyonix LLC.
+    </div>
+  </footer>
+</body>
+</html>

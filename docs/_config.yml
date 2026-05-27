@@ -1,0 +1,7 @@
+# GitHub Pages: serve the contents of /docs as-is.
+# `theme: null` opts out of Jekyll's default theme so our hand-written
+# HTML/CSS pages aren't wrapped in Cayman/Minima or fed through Liquid.
+theme: null
+plugins: []
+exclude:
+  - assets/PLACEHOLDERS.md

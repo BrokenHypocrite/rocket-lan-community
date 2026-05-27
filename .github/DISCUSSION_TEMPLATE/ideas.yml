@@ -1,0 +1,24 @@
+title: "[Idea] "
+labels: ["idea"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Half-formed ideas welcome! If it firms up into a concrete proposal we can promote it to a feature issue.
+  - type: textarea
+    id: idea
+    attributes:
+      label: What's the idea?
+      description: One or two sentences is fine. Don't worry about implementation — the *what* and *why* are what we want.
+    validations:
+      required: true
+  - type: textarea
+    id: scenario
+    attributes:
+      label: When would this come up?
+      description: A concrete moment when you'd reach for this. "When I'm hosting and..." / "When my friend joins and..."
+  - type: textarea
+    id: open-questions
+    attributes:
+      label: Things you're unsure about
+      description: What would need to be figured out to make this work? Edge cases that worry you?

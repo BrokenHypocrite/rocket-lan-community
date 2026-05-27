@@ -1,0 +1,19 @@
+title: "[Show] "
+labels: ["show-and-tell"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Match clips, custom maps you've made, screenshots, tournament setups, weird/cool things you've used Rocket LAN for — all welcome.
+  - type: textarea
+    id: what
+    attributes:
+      label: What did you make / do / set up?
+      description: Drag in screenshots, paste video links, link to map downloads. Whatever fits the story.
+    validations:
+      required: true
+  - type: textarea
+    id: how
+    attributes:
+      label: How did Rocket LAN fit in?
+      description: Optional. What did Rocket LAN make easier (or harder) here?

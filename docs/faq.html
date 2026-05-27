@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FAQ — Rocket LAN</title>
+  <meta name="description" content="Frequently asked questions about Rocket LAN: EAC compatibility, bans, requirements, what it changes on your system, privacy, and the rest." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="site-nav-inner">
+      <a class="site-nav-brand" href="./">Rocket<span class="accent">&nbsp;LAN</span></a>
+      <div class="site-nav-links">
+        <a href="./">Home</a>
+        <a href="features.html">Features</a>
+        <a href="faq.html" aria-current="page">FAQ</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions">Community</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container prose faq">
+    <h1>Frequently asked questions</h1>
+    <p class="hero-lede">
+      The questions early testers ask most. If yours isn't here, the
+      <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions/categories/q-a">Q&amp;A
+      tab</a> is the right place — answers there tend to be faster than email.
+    </p>
+
+    <h2>The basics</h2>
+
+    <details>
+      <summary>What is Rocket LAN, in one sentence?</summary>
+      <div class="faq-body">
+        <p>
+          A desktop app that makes Rocket League's built-in LAN match mode work
+          over the internet, so you and friends can play custom maps together
+          without setting up a real LAN.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary>What do I need?</summary>
+      <div class="faq-body">
+        <p>Windows 10 or 11, a Steam account, and Rocket League — either the Steam copy or the Epic Games Store copy. Everyone in the session needs Rocket LAN installed.</p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Is it free?</summary>
+      <div class="faq-body"><p>Yes. No price, no tiers, no microtransactions.</p></div>
+    </details>
+
+    <details>
+      <summary>Mac or Linux support?</summary>
+      <div class="faq-body">
+        <p>
+          Not currently. The bundled virtual network driver
+          (tap-windows6) is Windows-only, and Rocket League's macOS/Linux
+          situation makes a port a much bigger project than just compiling
+          the app on another platform. No plans yet; if it's important to
+          you, <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions/new?category=ideas">say so in Ideas</a>.
+        </p>
+      </div>
+    </details>
+
+    <h2>EAC, bans, and online play</h2>
+
+    <details>
+      <summary>Does it work with Easy Anti-Cheat (EAC) enabled?</summary>
+      <div class="faq-body">
+        <p>
+          <strong>Yes.</strong> Rocket LAN is compatible with EAC. We don't
+          inject, hook, or patch the running game; Rocket LAN's involvement
+          is entirely outside the Rocket League process. Launch with EAC on
+          or off — both work.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Will it get me banned?</summary>
+      <div class="faq-body">
+        <p>
+          Rocket LAN is not a cheat. It doesn't enable mods in official
+          ranked or casual matchmaking, doesn't modify the game's running
+          memory, and doesn't tamper with anti-cheat. Custom-map play
+          happens through Rocket League's own LAN mode, which is an
+          official feature of the game.
+        </p>
+        <p>
+          We can't promise anything about how third parties classify any
+          tool — that's their call, not ours — but Rocket LAN is
+          deliberately designed to coexist with EAC and the live game.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Does Rocket LAN modify Rocket League?</summary>
+      <div class="faq-body">
+        <p>
+          It temporarily swaps a custom map file into one specific slot
+          (<code>Labs_Utopia_P.upk</code>, which Psyonix doesn't use for
+          ranked or casual matchmaking) and restores the original file when
+          the session ends or the app closes. That's it. No DLLs, no
+          process injection, no save-game modification.
+        </p>
+      </div>
+    </details>
+
+    <h2>Setup and use</h2>
+
+    <details>
+      <summary>How do I host a session?</summary>
+      <div class="faq-body">
+        <p>
+          Open Rocket LAN, click <strong>Host session</strong>. Pick "open to
+          friends" or "invite-only", then invite Steam friends from the
+          right-hand panel. They get a Steam notification; one click joins
+          them in.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary>How do my friends join?</summary>
+      <div class="faq-body">
+        <p>
+          When you've invited them, they get a standard Steam invite. They
+          click it; if Rocket LAN is installed, it opens to the session
+          directly. If it isn't, they're prompted to install it first.
+        </p>
+        <p>
+          Friends with "open to friends" sessions can also be seen in your
+          Rocket LAN lobby's friends panel as joinable, so you can drop into
+          their session without waiting for an invite.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary>Do I need to port-forward?</summary>
+      <div class="faq-body">
+        <p>
+          No. Rocket LAN uses iroh's QUIC stack for peer-to-peer
+          connections, with NAT traversal handled for you. If a direct
+          connection isn't possible, traffic falls back to encrypted relays
+          run by the iroh project.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary>I'm an Epic player. Will it find my install?</summary>
+      <div class="faq-body">
+        <p>
+          Yes. Rocket LAN looks for the Epic Rocket League install on
+          launch, and if your install layout is non-standard the install
+          diagnostic in <strong>Settings</strong> walks you through
+          pointing it at the right folder.
+        </p>
+      </div>
+    </details>
+
+    <h2>Network, firewall, antivirus</h2>
+
+    <details>
+      <summary>A friend can't see my session. What's wrong?</summary>
+      <div class="faq-body">
+        <p>
+          Almost always one of three things:
+        </p>
+        <ul>
+          <li><strong>Their security software (Norton, McAfee, etc.) is blocking Rocket LAN.</strong> Allow the app through that firewall, then have them restart Rocket LAN.</li>
+          <li><strong>Steam isn't running or not logged in</strong> on one of the machines. Rocket LAN needs Steam for the friends list and invite delivery.</li>
+          <li><strong>The session is invite-only</strong>, and the host hasn't sent the invite yet.</li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>What changes does Rocket LAN make to my system?</summary>
+      <div class="faq-body">
+        <ul>
+          <li>Installs the bundled tap-windows6 virtual network adapter driver, as a one-time elevated install.</li>
+          <li>Creates a virtual network adapter and assigns it an address while a session is active.</li>
+          <li>Adds Windows Firewall rules that permit its own network traffic.</li>
+          <li>Temporarily swaps custom-map files into Rocket League and restores the originals afterward.</li>
+        </ul>
+        <p>Full Terms: <a href="terms.html">Terms of Use</a>.</p>
+      </div>
+    </details>
+
+    <h2>Privacy and data</h2>
+
+    <details>
+      <summary>What data does Rocket LAN collect?</summary>
+      <div class="faq-body">
+        <p>
+          None that's sent to the developer. No analytics, no telemetry, no
+          crash reporting. Steam friend / profile data is read on your
+          machine to power the friends panel; your Steam persona name is
+          shared with the peers in a session you host or join so the roster
+          can show who's present. Full details on the
+          <a href="privacy.html">privacy page</a>.
+        </p>
+      </div>
+    </details>
+
+    <h2>The project</h2>
+
+    <details>
+      <summary>Is the source code open?</summary>
+      <div class="faq-body">
+        <p>
+          No, the app itself isn't open-source. This community repository
+          (with the website, issue templates, and discussion threads) is
+          public; the application binary is distributed as a closed-source
+          product. See <a href="terms.html">Terms</a> §3 for the licensing
+          details.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary>How do I report a bug or request a feature?</summary>
+      <div class="faq-body">
+        <p>
+          Issues:
+          <a href="https://github.com/BrokenHypocrite/rocket-lan-community/issues/new?template=bug_report.yml">bug report</a> ·
+          <a href="https://github.com/BrokenHypocrite/rocket-lan-community/issues/new?template=feature_request.yml">feature request</a>.
+          Ideas and questions go in
+          <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions">Discussions</a>.
+          For security issues, see <a href="https://github.com/BrokenHypocrite/rocket-lan-community/blob/main/SECURITY.md">SECURITY.md</a> — please don't file a public issue.
+        </p>
+      </div>
+    </details>
+
+    <details>
+      <summary>When does a public version drop?</summary>
+      <div class="faq-body">
+        <p>
+          When it's ready. The <a href="roadmap.html">roadmap</a> tracks
+          the gating items. The fastest way to know is to watch the
+          repository on GitHub or follow the
+          <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions">Discussions</a>
+          tab — that's where announcements will land.
+        </p>
+      </div>
+    </details>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer-inner">
+      <div><strong>Rocket LAN</strong> · independent, fan-made, free</div>
+      <div class="footer-links">
+        <a href="faq.html">FAQ</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="licenses.html">Notices</a>
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community">GitHub</a>
+      </div>
+    </div>
+    <div class="container site-footer-trademark">
+      Not affiliated with, endorsed by, sponsored by, or approved by Psyonix LLC or Epic Games, Inc.
+      "Rocket League" is a trademark of Psyonix LLC.
+    </div>
+  </footer>
+</body>
+</html>

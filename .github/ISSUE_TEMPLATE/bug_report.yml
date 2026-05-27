@@ -1,0 +1,136 @@
+name: Bug report
+description: Something in Rocket LAN is broken or behaves unexpectedly.
+title: "[Bug] "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to file a bug.
+
+        Before you submit:
+        - Check [open issues](../../issues?q=is%3Aissue) for an existing report.
+        - For questions or "is this supposed to work?", open a [Discussion](../../discussions/new?category=q-a) instead.
+        - For security issues, please **don't** file a public issue — see [SECURITY.md](../../blob/main/SECURITY.md).
+
+  - type: input
+    id: version
+    attributes:
+      label: Rocket LAN version
+      description: Find it in Settings → About, or on the title bar.
+      placeholder: e.g. 0.1.0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: rl-platform
+    attributes:
+      label: Which Rocket League install do you use?
+      multiple: true
+      options:
+        - Steam
+        - Epic Games Store
+        - Both (have both installed)
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: eac
+    attributes:
+      label: Was Easy Anti-Cheat (EAC) enabled when this happened?
+      options:
+        - "Yes — EAC on"
+        - "No — EAC off"
+        - "Not sure"
+        - "Doesn't apply / RL wasn't running"
+    validations:
+      required: true
+
+  - type: input
+    id: windows-version
+    attributes:
+      label: Windows version
+      description: "Win+R → `winver`. Include the build number if you have it."
+      placeholder: e.g. Windows 11 Pro 24H2 (build 26200)
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: A clear, concrete description of the bug. Screenshots help — drag them into the box.
+      placeholder: When I tried to..., Rocket LAN did...
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: How can we reproduce it?
+      description: Step by step. The smallest sequence of actions that triggers the bug.
+      placeholder: |
+        1. Open Rocket LAN
+        2. Click ...
+        3. Observe ...
+      value: |
+        1.
+        2.
+        3.
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen instead?
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: How often does this happen?
+      options:
+        - Every time
+        - Often (more than half the time)
+        - Sometimes
+        - Only happened once
+        - Not sure
+    validations:
+      required: true
+
+  - type: dropdown
+    id: session-role
+    attributes:
+      label: Were you hosting, joining, or solo?
+      options:
+        - Hosting a session
+        - Joining someone else's session
+        - Solo / no session active
+        - Not applicable
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant log lines (optional)
+      description: |
+        If you can grab any context from the diagnostic log, paste it here.
+        Logs live at `%APPDATA%\com.rocketlan.app\logs\`. Trim to the
+        time the bug happened; lots of unrelated lines are fine.
+      render: text
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Sanity checks
+      options:
+        - label: I've searched existing issues and haven't found a duplicate.
+          required: true
+        - label: I'm running the latest release of Rocket LAN I have access to.
+          required: false
+        - label: This is reproducible (or I've described what I observed even if I can't reproduce it).
+          required: true

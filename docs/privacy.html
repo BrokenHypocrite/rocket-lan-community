@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Privacy — Rocket LAN</title>
+  <meta name="description" content="Rocket LAN has no servers, no analytics, no telemetry. A plain-language summary of what data is read where." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="site-nav-inner">
+      <a class="site-nav-brand" href="./">Rocket<span class="accent">&nbsp;LAN</span></a>
+      <div class="site-nav-links">
+        <a href="./">Home</a>
+        <a href="features.html">Features</a>
+        <a href="faq.html">FAQ</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions">Community</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container prose">
+    <h1>Privacy</h1>
+    <p class="hero-lede">
+      Short version: Rocket LAN has no servers run by the developer, no
+      analytics, no telemetry, and no crash reporting. Nothing about your
+      use of the app is uploaded anywhere.
+    </p>
+
+    <h2>What stays on your computer</h2>
+    <ul>
+      <li><strong>Your settings.</strong> Theme, preferred Rocket League version, display mode, every toggle you've touched. Stored locally under your Windows user profile.</li>
+      <li><strong>The map library.</strong> Imported and downloaded custom maps live in a local folder you can re-locate any time in Settings.</li>
+      <li><strong>The diagnostic log.</strong> A rolling local log file for troubleshooting. Useful to paste into a bug report. Never uploaded.</li>
+    </ul>
+
+    <h2>What's read from Steam</h2>
+    <p>
+      Rocket LAN integrates with Steam via Valve's Steamworks SDK. On your
+      machine, it reads:
+    </p>
+    <ul>
+      <li>Your Steam friends list and their Steam IDs, persona names, and avatars — to show your friends and let you invite them.</li>
+      <li>Your own Steam ID and persona — to identify yourself in the session roster.</li>
+      <li>Ownership of Rocket League — to know whether you can launch the Steam copy or the Epic copy.</li>
+    </ul>
+    <p>
+      All of this happens in-process on your computer, between Rocket LAN
+      and Steam. None of it is sent to the developer.
+    </p>
+
+    <h2>What's shared with other players</h2>
+    <p>
+      When you host or join a session, the other players in that session
+      learn:
+    </p>
+    <ul>
+      <li>Your Steam persona name and Steam ID (so your roster row identifies you).</li>
+      <li>Your Steam avatar (the overlay and roster show it).</li>
+      <li>Whether your Rocket League is currently in menus, lobby, or in a match (so the host knows when it's safe to swap maps).</li>
+      <li>The custom map bytes when you're the host re-sharing them, or the host's bytes when you're a joiner downloading.</li>
+    </ul>
+    <p>
+      That's it. Nothing about your wider system, browsing, or other apps
+      is shared.
+    </p>
+
+    <h2>Network traffic</h2>
+    <p>
+      Rocket LAN connects players peer-to-peer using the iroh QUIC stack.
+      When a direct peer-to-peer connection can't be established (NAT,
+      firewall, etc.), traffic falls back to the public relay
+      infrastructure run by the iroh project — operated by the iroh
+      maintainers, not by Rocket LAN's developer. <strong>All session
+      traffic is end-to-end encrypted</strong>, so relays only carry
+      encrypted bytes.
+    </p>
+    <p>
+      Steam connectivity is whatever Steam itself does on your machine,
+      governed by Valve's terms.
+    </p>
+
+    <h2>Steam rich presence</h2>
+    <p>
+      When you host a session open to friends, Rocket LAN sets a Steam
+      "rich presence" string on your profile so your Steam friends can
+      see you're hosting and tap a "Join Game" button on you in Steam.
+      That string is visible to your Steam friends (which is the point).
+      Closing the session clears it.
+    </p>
+
+    <h2>What's not collected</h2>
+    <ul>
+      <li>No analytics — no event pings, no view counts, no "session started" beacons.</li>
+      <li>No telemetry — no performance data, no error reports, no usage stats.</li>
+      <li>No crash reporting — if Rocket LAN crashes, you can paste the local diagnostic log into a bug report; nothing leaves your machine automatically.</li>
+      <li>No third-party advertising or ad-network tags. The app embeds no web content.</li>
+      <li>This website (the one you're reading) does not run analytics or set non-essential cookies. GitHub Pages may set technically-necessary cookies for the underlying hosting; Rocket LAN does not add any.</li>
+    </ul>
+
+    <h2>Children</h2>
+    <p>
+      Rocket LAN is general-purpose software intended for personal use
+      alongside a copy of Rocket League. It does not knowingly collect
+      personal data from anyone, including children.
+    </p>
+
+    <h2>Changes</h2>
+    <p>
+      If the privacy story ever changes, this page changes with it, and
+      the change goes into the Terms of Use's "Last updated" log.
+    </p>
+
+    <p>
+      The legal version of all this is in the
+      <a href="terms.html">Terms of Use</a>, section 5.
+    </p>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer-inner">
+      <div><strong>Rocket LAN</strong> · independent, fan-made, free</div>
+      <div class="footer-links">
+        <a href="faq.html">FAQ</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="licenses.html">Notices</a>
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community">GitHub</a>
+      </div>
+    </div>
+    <div class="container site-footer-trademark">
+      Not affiliated with, endorsed by, sponsored by, or approved by Psyonix LLC or Epic Games, Inc.
+      "Rocket League" is a trademark of Psyonix LLC.
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rocket LAN — Custom-map nights with friends, over the internet</title>
+  <meta name="description" content="Rocket LAN turns Rocket League's built-in LAN match mode into an internet-friendly way to play custom maps with friends. Pre-release." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="site-nav-inner">
+      <a class="site-nav-brand" href="./">Rocket<span class="accent">&nbsp;LAN</span></a>
+      <div class="site-nav-links">
+        <a href="./" aria-current="page">Home</a>
+        <a href="features.html">Features</a>
+        <a href="faq.html">FAQ</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions">Community</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-inner">
+      <span class="pill pill-accent pill-dot">Pre-release</span>
+      <h1>Custom-map nights for Rocket League, with friends, over the internet.</h1>
+      <p class="hero-lede">
+        Rocket LAN spins up a private virtual network on each player's machine,
+        then lets Rocket League's own built-in LAN match mode handle the rest.
+        Custom maps. Steam-friend invites. No port-forwarding, no DDoS exposure,
+        no injection into the game.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="features.html">See what it does</a>
+        <a class="btn" href="roadmap.html">Pre-release status</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="callout callout-accent" role="note">
+      <div>
+        <strong>Heads up.</strong>
+        Rocket LAN isn't generally available yet. Early access is going out in
+        limited batches while we sand off rough edges. The
+        <a href="roadmap.html">roadmap</a> tracks what's shipped, in progress,
+        and planned; if you want to know when a public build lands,
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions">watch
+        the community</a>.
+      </div>
+    </div>
+
+    <section>
+      <h2>What it actually does</h2>
+      <div class="feature-grid">
+        <div class="card">
+          <h3>Sessions over Steam</h3>
+          <p>
+            Host a session, invite Steam friends in a click, and they're in.
+            Friends see your session in their Rocket LAN lobby and can
+            jump straight in. No IP addresses, no port-forwarding.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Map sync, on the fly</h3>
+          <p>
+            Pick any custom map from your library; Rocket LAN streams it to
+            everyone in the lobby in the background. They never have to
+            download it ahead of time or hunt for the right file.
+          </p>
+        </div>
+        <div class="card">
+          <h3>EAC-compatible</h3>
+          <p>
+            Works whether you launch Rocket League with Easy Anti-Cheat on
+            or off. Rocket LAN doesn't inject, hook, or patch the game —
+            it just makes Rocket League's existing LAN mode usable.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Map Maker mode</h3>
+          <p>
+            Building a map? Point Rocket LAN at your <code>.udk</code> or
+            <code>.upk</code> file and it'll hot-swap it into the slot
+            every time you save. Iterate in Rocket League at the speed
+            you iterate in the editor.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Community map browser</h3>
+          <p>
+            Browse the BakkesPlugins community library without leaving
+            Rocket LAN. Search, preview, favorite, download. Your
+            library stays organized.
+          </p>
+        </div>
+        <div class="card">
+          <h3>In-game overlay</h3>
+          <p>
+            A small overlay keeps the session roster, the current map, and
+            the host-only "swap map" control one keystroke away while
+            you're in Rocket League.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>See it in action</h2>
+      <div class="screenshot-placeholder" aria-hidden="true">
+        [TODO: hero screenshot of the Session view with a custom map loaded —<br/>
+        ideally with a roster of 3–4 peers and the map preview visible]
+      </div>
+      <p class="hero-lede">
+        We'll publish a short walk-through video here closer to general
+        availability. For now: drop into the
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions/categories/show-and-tell">Show
+        and tell</a> tab to see clips from sessions early testers have run.
+      </p>
+    </section>
+
+    <section>
+      <h2>Common questions</h2>
+      <div class="feature-grid">
+        <div class="card">
+          <h3>Does it work with EAC on?</h3>
+          <p>Yes. Rocket LAN doesn't touch the running game; it's compatible with EAC enabled.</p>
+        </div>
+        <div class="card">
+          <h3>Will it get me banned?</h3>
+          <p>
+            Rocket LAN doesn't enable mods in official online play, doesn't
+            inject, and isn't a cheat. We've tested it alongside EAC end to
+            end. See the <a href="faq.html">FAQ</a> for more.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Do my friends need it too?</h3>
+          <p>
+            Yes — each player needs Rocket LAN installed and Rocket League
+            owned (Steam or Epic). Joining is one click; nobody fiddles
+            with config.
+          </p>
+        </div>
+      </div>
+      <p style="text-align: center; margin-top: var(--space-5);">
+        <a class="btn" href="faq.html">Read the full FAQ →</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer-inner">
+      <div>
+        <strong>Rocket LAN</strong> · independent, fan-made, free
+      </div>
+      <div class="footer-links">
+        <a href="faq.html">FAQ</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="licenses.html">Notices</a>
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community">GitHub</a>
+      </div>
+    </div>
+    <div class="container site-footer-trademark">
+      Not affiliated with, endorsed by, sponsored by, or approved by Psyonix LLC or Epic Games, Inc.
+      "Rocket League" is a trademark of Psyonix LLC.
+    </div>
+  </footer>
+</body>
+</html>

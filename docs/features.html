@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Features — Rocket LAN</title>
+  <meta name="description" content="What Rocket LAN does, in detail: sessions, map sync, Map Maker mode, Workshop and community maps, the in-game overlay, and more." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="site-nav-inner">
+      <a class="site-nav-brand" href="./">Rocket<span class="accent">&nbsp;LAN</span></a>
+      <div class="site-nav-links">
+        <a href="./">Home</a>
+        <a href="features.html" aria-current="page">Features</a>
+        <a href="faq.html">FAQ</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions">Community</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container prose">
+    <h1>Features</h1>
+    <p class="hero-lede">
+      Rocket LAN is a thin layer that makes Rocket League's existing LAN match
+      mode work over the internet — and adds the convenience around it that
+      a real LAN party gives you for free. Here's what ships today.
+    </p>
+
+    <section>
+      <h2>Sessions and friends</h2>
+      <ul>
+        <li><strong>Host or join in one click</strong> from the lobby. Hosts pick "open to friends" or "invite-only"; either way, every connected friend appears in your friends panel as joinable.</li>
+        <li><strong>Steam-friend invites</strong> route through Steam's own invite system. The friend gets the standard Steam invite notification and lands in your session when they accept.</li>
+        <li><strong>Mesh peer-to-peer</strong> connections via the iroh QUIC stack. Direct connections when possible; encrypted relay fallback when NAT or firewall topology blocks a direct link.</li>
+        <li><strong>Reconnect resilience.</strong> A dropped peer's roster row flags as "reconnecting" instead of vanishing, and the app retries with exponential backoff for ~30 seconds before tearing down the entry.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Custom maps</h2>
+      <ul>
+        <li><strong>Bring your own.</strong> Import any <code>.udk</code>/<code>.upk</code> from disk; it shows up in your library with a thumbnail.</li>
+        <li><strong>Workshop integration.</strong> Maps you've subscribed to on the Steam Workshop appear in your library automatically; Rocket LAN handles the cooked-asset texture set that Workshop maps need.</li>
+        <li><strong>Community map browser.</strong> Browse, search, preview, and download from the BakkesPlugins community library without leaving the app. Favorites and sort options are first-class.</li>
+        <li><strong>Map sync on the fly.</strong> When the host picks a map, Rocket LAN streams it (BLAKE3-hashed bundle) to every connected peer. Local match? Skipped — Rocket LAN spots that you already have the file.</li>
+        <li><strong>Auto-download toggle.</strong> Default is "yes, just download what the host picks"; flip it off to be prompted each time. Either way, hash-matched local copies are reused.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Map Maker mode</h2>
+      <ul>
+        <li><strong>Pick your source file</strong> — your in-progress <code>.udk</code>/<code>.upk</code>. Rocket LAN watches it on disk.</li>
+        <li><strong>Hot swap on save.</strong> Every time the file changes, Rocket LAN copies it into the right slot. Restart the level in Rocket League and you're testing the new cook.</li>
+        <li><strong>Survives app restarts.</strong> Your Map Maker session resumes automatically next time you launch Rocket LAN — no re-enabling, no re-pointing.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>The in-game overlay</h2>
+      <ul>
+        <li><strong>Always-on-top companion</strong> window: roster, current session map, host-only swap-map control. Toggle with <kbd>Ctrl + Shift + O</kbd>.</li>
+        <li><strong>Steam avatars</strong> for every peer (and you).</li>
+        <li><strong>Live match status</strong> per peer — in menus, in lobby, in match — so the host knows when it's safe to swap maps mid-session.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>The app itself</h2>
+      <ul>
+        <li><strong>EAC-compatible.</strong> Rocket LAN does not inject, hook, or patch Rocket League. Launch with Easy Anti-Cheat on, off, or whatever your usual setup is — it works.</li>
+        <li><strong>No telemetry.</strong> No analytics, no crash reporting, no servers operated by the developer. <a href="privacy.html">Privacy details &rarr;</a></li>
+        <li><strong>Free.</strong> No price, no tiers, no microtransactions.</li>
+        <li><strong>Custom themes.</strong> Built-in Dark and Light, plus a per-token theme editor for the bold. Export/import themes as small JSON files.</li>
+        <li><strong>Steam <em>and</em> Epic launches.</strong> Rocket LAN finds your Rocket League install automatically, on either store.</li>
+        <li><strong>Diagnostic install scan</strong> for when auto-detection misses your install — point Rocket LAN at the folder yourself.</li>
+      </ul>
+    </section>
+
+    <div class="callout">
+      <div>
+        <strong>What's <em>not</em> here yet?</strong>
+        See the <a href="roadmap.html">roadmap</a> for what's in flight and
+        what's planned. Found something missing that should be here?
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community/issues/new?template=feature_request.yml">Open
+        a feature request</a> or float it as
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions/new?category=ideas">an idea</a>.
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container site-footer-inner">
+      <div><strong>Rocket LAN</strong> · independent, fan-made, free</div>
+      <div class="footer-links">
+        <a href="faq.html">FAQ</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="licenses.html">Notices</a>
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community">GitHub</a>
+      </div>
+    </div>
+    <div class="container site-footer-trademark">
+      Not affiliated with, endorsed by, sponsored by, or approved by Psyonix LLC or Epic Games, Inc.
+      "Rocket League" is a trademark of Psyonix LLC.
+    </div>
+  </footer>
+</body>
+</html>
