@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Joining a Rocket LAN session</title>
+  <meta name="description" content="Opening your Rocket LAN session from Discord. Don't have Rocket LAN yet? Download it for Windows." />
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/icons/32x32.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="../../assets/icons/64x64.png" />
+  <link rel="icon" type="image/png" sizes="128x128" href="../../assets/icons/128x128.png" />
+  <link rel="icon" href="../../assets/icons/icon.ico" />
+</head>
+<body>
+  <nav class="site-nav" aria-label="Primary">
+    <div class="site-nav-inner">
+      <a class="site-nav-brand" href="../../">Rocket<span class="accent">&nbsp;LAN</span></a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-inner">
+      <span class="pill pill-accent pill-dot">Discord invite</span>
+      <h1>Joining a Rocket LAN session</h1>
+      <p class="hero-lede hero-lede-center" id="launch-status">
+        Opening Rocket LAN&hellip;
+      </p>
+      <div class="hero-cta hero-cta--center">
+        <a class="btn btn-primary" id="join-download" href="https://github.com/BrokenHypocrite/rocket-lan-community/releases/latest">
+          Download for Windows
+        </a>
+      </div>
+      <p class="hero-lede hero-lede-spaced">
+        Don't have Rocket LAN yet? Download it, install, then click Join again in Discord.
+      </p>
+    </div>
+  </header>
+
+  <footer class="site-footer">
+    <div class="container site-footer-inner">
+      <div>
+        <strong>Rocket LAN</strong> &middot; independent, fan-made, free
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community/releases/latest">Download</a>
+        <a href="../../faq.html">FAQ</a>
+        <a href="../../privacy.html">Privacy</a>
+        <a href="../../terms.html">Terms</a>
+        <a href="../../licenses.html">Notices</a>
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community">GitHub</a>
+      </div>
+    </div>
+    <div class="container site-footer-trademark">
+      Not affiliated with, endorsed by, sponsored by, or approved by Psyonix LLC or Epic Games, Inc.
+      "Rocket League" is a trademark of Psyonix LLC.
+    </div>
+  </footer>
+
+  <script>
+    // Discord activity-invite deep link handoff.
+    //
+    // Discord opens this page as `_discord/join?secret=<join-secret>` when a
+    // user accepts a Rocket LAN invite through its Social Layer integration.
+    // The join secret is our party id string (e.g. `rl1:s:<endpoint>`); the
+    // app registers `rocketlan://join/<url-encoded-secret>` as its scheme
+    // handler, which triggers the app's own in-app confirmation gate before
+    // actually joining, so this handoff is safe even though it's automatic.
+    //
+    // If nobody has Rocket LAN installed, setting location.href to an
+    // unregistered custom scheme is a silent no-op in every modern browser,
+    // there's no error to catch, no page navigation happens. That's fine:
+    // the download button below is always visible and usable regardless of
+    // whether the launch attempt did anything.
+    (function () {
+      var statusEl = document.getElementById("launch-status");
+      var secret = new URLSearchParams(window.location.search).get("secret");
+
+      if (secret) {
+        try {
+          window.location.href = "rocketlan://join/" + encodeURIComponent(secret);
+        } catch (e) {
+          // No handler registered, or the browser blocked the navigation.
+          // Nothing to recover: the download button is the fallback path.
+        }
+      } else if (statusEl) {
+        // Someone navigated here directly rather than through a Discord
+        // invite. There's no secret to launch with, so don't claim we're
+        // opening anything, just show the download page.
+        statusEl.hidden = true;
+      }
+    })();
+  </script>
+
+  <script>
+    // Instant download: rewrites the button's href to point straight at the
+    // installer asset, so clicking it starts the download instead of
+    // navigating to the releases page. The static href above is the no-JS /
+    // failure fallback, it always points at the releases page so the button
+    // is never dead. Mirrors the homepage hero button's enhancement
+    // (docs/index.html); kept as a small duplicate rather than a shared
+    // module since there's no build step on this site to import one from.
+    (function () {
+      var downloadBtn = document.getElementById("join-download");
+      if (!downloadBtn) return;
+
+      fetch("https://api.github.com/repos/BrokenHypocrite/rocket-lan-community/releases/latest")
+        .then(function (res) {
+          if (!res.ok) throw new Error("releases fetch failed");
+          return res.json();
+        })
+        .then(function (release) {
+          var assets = release.assets || [];
+          var setupAsset = assets.filter(function (asset) {
+            return typeof asset.name === "string" && asset.name.endsWith("-setup.exe");
+          })[0];
+          if (!setupAsset) return;
+
+          downloadBtn.href = setupAsset.browser_download_url;
+          downloadBtn.setAttribute("download", "");
+        })
+        .catch(function () {
+          // Leave the fallback href pointed at the releases page.
+        });
+    })();
+  </script>
+</body>
+</html>
