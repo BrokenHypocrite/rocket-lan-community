@@ -17,15 +17,15 @@
         <a href="./">Home</a>
         <a href="features.html">Features</a>
         <a href="faq.html">FAQ</a>
-        <a href="roadmap.html">Roadmap</a>
         <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions">Community</a>
       </div>
+      <a class="site-nav-download" href="https://github.com/BrokenHypocrite/rocket-lan-community/releases/latest">Download</a>
     </div>
   </nav>
 
   <main class="container prose">
     <h1>Rocket LAN, Terms of Use</h1>
-    <p><em>Last updated: 26 May 2026</em></p>
+    <p><em>Last updated: 10 July 2026</em></p>
 
     <p>
       By installing or using Rocket LAN (the "Software"), you agree to these
@@ -75,8 +75,10 @@
       its own license. The notable components, including OpenVPN's
       <strong>tap-windows6</strong> virtual network driver, licensed under
       the <strong>GNU General Public License, version 2</strong>, with
-      corresponding source pointers; Valve's Steamworks SDK; and the bundled
-      fonts under the SIL Open Font License, are listed in the in-app
+      corresponding source pointers; Discord's
+      <a href="https://discord.com/developers/docs/discord-social-sdk/overview" target="_blank" rel="noopener">Discord Social SDK</a>,
+      used under Discord's Developer Terms; and the bundled fonts under the
+      SIL Open Font License, are listed in the in-app
       <strong>Settings → Third-Party Notices</strong> screen and reproduced
       publicly on the <a href="licenses.html">Notices</a> page.
     </p>
@@ -105,15 +107,17 @@
     </p>
     <ul>
       <li>
-        <strong>Steam data.</strong> Rocket LAN reads your Steam friends
-        list, Steam IDs, persona names, and avatars through the Steamworks
-        SDK so it can show your friends and let you host, invite, and join
-        sessions. This information is used on your own computer. Your own
-        Steam persona name is shared peer-to-peer with the other players in
-        a session you host or join, so the session roster can show who is
-        present. Rocket LAN also sets Steam "rich presence" while you host
-        a session open to friends, so your Steam friends can see and join
-        it through Steam.
+        <strong>Discord data.</strong> If you sign in with Discord, Rocket
+        LAN reads your Discord friends list, Discord ids, display names,
+        and avatars through the Discord Social SDK so it can show your
+        friends and let you host, invite, and join sessions. This is used
+        on your own computer. Your own Discord display name is shared
+        peer-to-peer with the other players in a session you host or join,
+        so the roster can show who is present. Rocket LAN also sets
+        Discord rich presence while the app is running, carrying your
+        connection endpoint id so friends can invite you. When you host a
+        session open to friends, it advertises that session through
+        Discord so your friends can see and join it.
       </li>
       <li>
         <strong>Connectivity.</strong> Sessions connect players
@@ -123,6 +127,10 @@
         LAN's developer); that project's discovery service is used to
         locate peers. All session traffic is end-to-end encrypted, so
         relays carry only encrypted data.
+      </li>
+      <li>
+        <strong>Auto-update.</strong> Rocket LAN contacts GitHub on
+        startup to check for a newer version.
       </li>
       <li>
         <strong>Local data.</strong> Your settings and a local diagnostic
@@ -165,9 +173,11 @@
 
     <h2>9. Your accounts and game</h2>
     <p>
-      Rocket LAN connects you with friends through Steam and requires a
-      Steam account. To use Rocket LAN for its intended purpose you must
-      own a legal copy of Rocket League, on Steam or the Epic Games Store.
+      A Discord account is required to use Rocket LAN's friend list,
+      invite, and presence features. Hosting and joining sessions by
+      endpoint id work without signing in to Discord. To use Rocket LAN
+      for its intended purpose you must own a legal copy of Rocket League,
+      on Steam or the Epic Games Store.
     </p>
 
     <h2>10. Price</h2>
@@ -212,8 +222,8 @@
     <div class="container site-footer-inner">
       <div><strong>Rocket LAN</strong> · independent, fan-made, free</div>
       <div class="footer-links">
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community/releases/latest">Download</a>
         <a href="faq.html">FAQ</a>
-        <a href="roadmap.html">Roadmap</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
         <a href="licenses.html">Notices</a>

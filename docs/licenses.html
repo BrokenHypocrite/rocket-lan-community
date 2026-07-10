@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Third-Party Notices, Rocket LAN</title>
-  <meta name="description" content="Third-party components bundled in Rocket LAN: tap-windows6 (GPLv2), Steamworks SDK, and bundled fonts (OFL)." />
+  <meta name="description" content="Third-party components bundled in Rocket LAN: tap-windows6 (GPLv2), Discord Social SDK, and bundled fonts (OFL)." />
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/32x32.png" />
   <link rel="icon" href="assets/icons/icon.ico" />
@@ -17,9 +17,9 @@
         <a href="./">Home</a>
         <a href="features.html">Features</a>
         <a href="faq.html">FAQ</a>
-        <a href="roadmap.html">Roadmap</a>
         <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions">Community</a>
       </div>
+      <a class="site-nav-download" href="https://github.com/BrokenHypocrite/rocket-lan-community/releases/latest">Download</a>
     </div>
   </nav>
 
@@ -28,7 +28,7 @@
     <p class="hero-lede">
       Rocket LAN bundles a handful of third-party components in the shipped
       application. The notable ones, the bundled GPLv2 network driver,
-      Valve's Steamworks SDK, and the bundled fonts, are reproduced below.
+      Discord's Social SDK, and the bundled fonts, are reproduced below.
       The exhaustive Rust-crate and npm-package lists ship inside the
       application and are reachable from
       <strong>Settings → Third-Party Notices → Full third-party notices</strong>.
@@ -92,32 +92,30 @@
 
     <hr />
 
-    <h2>Steamworks SDK, Valve's Steam integration library</h2>
+    <h2>Discord Social SDK, Discord's identity, friends, and presence library</h2>
     <p>
-      Rocket LAN integrates with Steam (friends list, identities, invites,
-      rich presence, ownership checks) through Valve's <strong>Steamworks
-      SDK</strong>. It links the <code>steamworks</code> and
-      <code>steamworks-sys</code> Rust crates, and the shipped application
-      bundles Valve's redistributable runtime library
-      <strong><code>steam_api64.dll</code></strong>.
+      Rocket LAN integrates with Discord (friends list, identities,
+      invites, rich presence) through Discord's <strong>Social SDK</strong>,
+      a closed-source, vendored C/C++ library called from Rust through
+      hand-written FFI bindings. The shipped application bundles its
+      redistributable runtime.
     </p>
     <ul>
-      <li><strong>Component:</strong> Steamworks SDK (incl. <code>steam_api64.dll</code>)</li>
-      <li><strong>Copyright:</strong> © Valve Corporation. All rights reserved.</li>
-      <li><strong>License:</strong> Valve's <strong>Steamworks SDK Access Agreement</strong>, this is Valve's own proprietary SDK license. It is <strong>not</strong> an open-source license.</li>
+      <li><strong>Component:</strong> Discord Social SDK</li>
+      <li><strong>Copyright:</strong> © Discord Inc. All rights reserved.</li>
+      <li><strong>License:</strong> Discord's own proprietary SDK terms, its <strong>Developer Terms</strong>. It is <strong>not</strong> an open-source license.</li>
     </ul>
     <p>
-      The Steamworks SDK is provided by Valve to Steamworks partners for the
-      purpose of integrating their applications with Steam.
-      <code>steam_api64.dll</code> is Valve's redistributable component and
-      is shipped unmodified. The SDK and its redistributable are used
-      under, and remain governed by, the Steamworks SDK Access Agreement:
-      <a href="https://partner.steamgames.com/documentation/sdk_access_agreement">partner.steamgames.com/documentation/sdk_access_agreement</a>.
+      The Discord Social SDK is provided by Discord to developers for the
+      purpose of integrating applications with Discord's social features.
+      It is vendored unmodified and used under, and remains governed by,
+      Discord's Developer Terms:
+      <a href="https://discord.com/developers/docs/discord-social-sdk/overview" target="_blank" rel="noopener">discord.com/developers/docs/discord-social-sdk/overview</a>.
     </p>
     <p>
-      The <code>steamworks</code> and <code>steamworks-sys</code> Rust
-      crates are open-source Rust <em>bindings</em> to the SDK (MIT licensed, see the in-app full notices); the underlying Steamworks SDK itself
-      remains under Valve's terms above.
+      The SDK's own bundled open-source components (its C++ dependencies)
+      are disclosed in its own notice file in the application's source
+      tree; see the in-app full notices for the pointer.
     </p>
 
     <hr />
@@ -161,8 +159,8 @@
     <div class="container site-footer-inner">
       <div><strong>Rocket LAN</strong> · independent, fan-made, free</div>
       <div class="footer-links">
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community/releases/latest">Download</a>
         <a href="faq.html">FAQ</a>
-        <a href="roadmap.html">Roadmap</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
         <a href="licenses.html">Notices</a>
