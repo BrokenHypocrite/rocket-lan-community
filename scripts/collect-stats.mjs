@@ -34,8 +34,9 @@ const STATS_PATH = path.join(__dirname, "..", "docs", "assets", "stats.json");
 // Pure: given the releases API payload, sum installer + manifest counters.
 // Installer assets are the NSIS bundles (*-setup.exe); the launch counter
 // is the updater manifest (latest.json), fetched once per app start by
-// builds >= 0.10.0. Neither number dedupes people; see the plan's
-// "Accuracy caveats".
+// builds >= 0.10.0. Neither number dedupes people; browser downloads of
+// latest.json also increment the counter, but the noise is negligible.
+// See the plan's "Accuracy caveats".
 //
 // IMPORTANT: latest.json exists on EVERY release, not just the newest one,
 // and the app's updater always hits releases/latest/download/latest.json,
@@ -86,10 +87,13 @@ export function weeklyLaunches(history, todayIso) {
   }
 
   if (!best) return null;
-  return todayEntry.launches - best.launches;
+  const delta = todayEntry.launches - best.launches;
+  // Guard against impossible negative delta from release deletion or counter reset.
+  return delta < 0 ? null : delta;
 }
 
 async function fetchReleases() {
+  // Note: per_page=100 fetches only the first 100 releases; Link-header pagination would be needed if count approaches that limit, acceptable at current release cadence.
   const headers = { Accept: "application/vnd.github+json" };
   if (process.env.GITHUB_TOKEN) {
     headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
