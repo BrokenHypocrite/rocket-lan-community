@@ -17,27 +17,27 @@
         <a href="./">Home</a>
         <a href="features.html" aria-current="page">Features</a>
         <a href="faq.html">FAQ</a>
-        <a href="roadmap.html">Roadmap</a>
         <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions">Community</a>
       </div>
+      <a class="site-nav-download" href="https://github.com/BrokenHypocrite/rocket-lan-community/releases/latest">Download</a>
     </div>
   </nav>
 
   <main class="container prose">
     <h1>Features</h1>
     <p class="hero-lede">
-      Rocket LAN is a Steam companion app that makes Rocket League's
-      existing LAN match mode work over the internet, and adds the
-      convenience around it that a real LAN party gives you for free.
-      Here's what ships at launch.
+      Rocket LAN makes Rocket League's existing LAN match mode work over
+      the internet, and adds the convenience around it that a real LAN
+      party gives you for free. Here's what it does.
     </p>
 
     <section>
       <h2>Sessions and friends</h2>
       <ul>
         <li><strong>Host or join in one click</strong> from the lobby. Hosts pick "open to friends" or "invite-only"; either way, every connected friend appears in your friends panel as joinable.</li>
-        <li><strong>Steam-friend invites</strong> route through Steam's own invite system. The friend gets the standard Steam invite notification and lands in your session when they accept.</li>
-        <li><strong>Mesh peer-to-peer</strong> connections via the iroh QUIC stack. Direct connections when possible; encrypted relay fallback when NAT or firewall topology blocks a direct link.</li>
+        <li><strong>Discord sign-in (optional).</strong> Sign in with Discord to see your Discord friends list with in-app presence and send them invites; sessions still work without signing in.</li>
+        <li><strong>Discord rich presence</strong> carries your open session, so friends can see and join it straight from Discord, no invite required.</li>
+        <li><strong>Mesh peer-to-peer</strong> connections via the iroh QUIC stack, over Rocket LAN's own network. Direct connections when possible; encrypted relay fallback when NAT or firewall topology blocks a direct link.</li>
         <li><strong>Reconnect resilience.</strong> A dropped peer's roster row flags as "reconnecting" instead of vanishing, and the app retries with exponential backoff for ~30 seconds before tearing down the entry.</li>
       </ul>
     </section>
@@ -67,7 +67,7 @@
       <h2>The in-game overlay</h2>
       <ul>
         <li><strong>Always-on-top companion</strong> window: roster, current session map, host-only swap-map control. Toggle with <kbd>Ctrl + Shift + O</kbd>.</li>
-        <li><strong>Steam avatars</strong> for every peer (and you).</li>
+        <li><strong>Discord avatars</strong> for every peer (and you), when signed in.</li>
         <li><strong>Live match status</strong> per peer, in menus, in lobby, in match, so the host knows when it's safe to swap maps mid-session.</li>
       </ul>
     </section>
@@ -75,7 +75,7 @@
     <section>
       <h2>The app itself</h2>
       <ul>
-        <li><strong>Distributed on Steam.</strong> Rocket LAN is a Steam app, no installer hunt, no downloads-from-random-places. (No plans to ship outside Steam right now; open to it if there's demand.)</li>
+        <li><strong>Distributed as a Windows installer via GitHub Releases</strong>, with built-in auto-update: Rocket LAN checks for a new version on startup, and can install it silently or prompt you first, your call in Settings.</li>
         <li><strong>EAC-compatible.</strong> Rocket LAN does not inject into the game, hook, or patch Rocket League. Launch with Easy Anti-Cheat on, off, or whatever your usual setup is, it works.</li>
         <li><strong>No telemetry.</strong> No analytics, no crash reporting, no servers operated by the developer. <a href="privacy.html">Privacy details &rarr;</a></li>
         <li><strong>Free.</strong> No price, no tiers, no microtransactions.</li>
@@ -87,9 +87,7 @@
 
     <div class="callout">
       <div>
-        <strong>What's <em>not</em> here yet?</strong>
-        See the <a href="roadmap.html">roadmap</a> for what's in flight and
-        what's planned. Found something missing that should be here?
+        <strong>Found something missing?</strong>
         <a href="https://github.com/BrokenHypocrite/rocket-lan-community/issues/new?template=feature_request.yml">Open
         a feature request</a> or float it as
         <a href="https://github.com/BrokenHypocrite/rocket-lan-community/discussions/new?category=ideas">an idea</a>.
@@ -101,8 +99,8 @@
     <div class="container site-footer-inner">
       <div><strong>Rocket LAN</strong> · independent, fan-made, free</div>
       <div class="footer-links">
+        <a href="https://github.com/BrokenHypocrite/rocket-lan-community/releases/latest">Download</a>
         <a href="faq.html">FAQ</a>
-        <a href="roadmap.html">Roadmap</a>
         <a href="privacy.html">Privacy</a>
         <a href="terms.html">Terms</a>
         <a href="licenses.html">Notices</a>
