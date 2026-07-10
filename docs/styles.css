@@ -231,18 +231,26 @@ hr {
   pointer-events: none;
   z-index: 0;
 }
-.hero-inner { position: relative; z-index: 1; }
+.hero-inner { position: relative; z-index: 1; text-align: center; }
 .hero h1 { margin: var(--space-3) 0 var(--space-4); }
 .hero-lede {
   font-size: clamp(1.05rem, 1vw + 0.7rem, 1.25rem);
   color: var(--text-muted);
   max-width: 60ch;
 }
+.hero-lede-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+.hero-lede-spaced {
+  margin: var(--space-4) auto 0;
+}
 .hero-cta {
   display: flex;
   gap: var(--space-3);
   flex-wrap: wrap;
   margin-top: var(--space-5);
+  justify-content: center;
 }
 .hero-stats {
   display: flex;
