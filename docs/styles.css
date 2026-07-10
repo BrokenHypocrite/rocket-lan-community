@@ -261,6 +261,12 @@ hr {
   margin-top: var(--space-4);
 }
 
+/* --- hero, right-aligned (homepage only, via .hero--right) ----------- */
+
+.hero--right .hero-inner { text-align: right; }
+.hero--right .hero-lede { margin-left: auto; margin-right: 0; }
+.hero--right .hero-cta { justify-content: flex-end; }
+
 /* --- buttons --------------------------------------------------------- */
 
 .btn {
