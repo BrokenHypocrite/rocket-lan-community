@@ -17,7 +17,7 @@ no grant of rights to the Rocket LAN application is made here.
 ## License for the content in this repository
 
 The website content under [`/docs`](./docs/), copy, layout, the original
-prose in the FAQ / roadmap / privacy pages, and the project documents at
+prose in the FAQ / features / privacy pages, and the project documents at
 the repo root ([`README.md`](./README.md), [`TERMS.md`](./TERMS.md),
 [`THIRD-PARTY-NOTICES.md`](./THIRD-PARTY-NOTICES.md),
 [`SECURITY.md`](./SECURITY.md), this file) are licensed under
@@ -37,7 +37,7 @@ Miller and are made available under the same CC BY-NC 4.0 terms.
 
 Rocket LAN bundles third-party components in the shipped application. The
 required notices, including the GPLv2 obligations for the bundled
-tap-windows6 network driver, Valve's Steamworks SDK terms, and the SIL Open
+tap-windows6 network driver, Discord's Social SDK terms, and the SIL Open
 Font License for the bundled typefaces, are reproduced in
 [`THIRD-PARTY-NOTICES.md`](./THIRD-PARTY-NOTICES.md).
 

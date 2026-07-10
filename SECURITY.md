@@ -44,16 +44,18 @@ We're particularly interested in reports involving:
   a connected peer to a fuller attack on the host.
 - **The bundled tap-windows6 driver installation flow**, abuse of the
   one-time elevated install step.
-- **Steam integration**, confused-deputy attacks via the rich-presence
-  `connect` field, invite handling, or Steam ID spoofing.
+- **Discord integration**, confused-deputy attacks via the rich-presence
+  connection endpoint id, invite handling, or Discord identity spoofing.
+- **Auto-update**, the GitHub Releases-based update mechanism, including
+  installer signature verification and the silent-install path.
 - **Map sync**, path traversal or file-overwrite attacks via the
   custom-map bundle stream.
 - **Local privilege escalation** during install, uninstall, or update.
 
 Out of scope: bugs that require local administrator access to exploit;
-reports against third-party services (Steam, the iroh relay network); and
-reports against components clearly under upstream maintainers'
-control (we'll forward those to the right project).
+reports against third-party services (Discord, GitHub, the iroh relay
+network); and reports against components clearly under upstream
+maintainers' control (we'll forward those to the right project).
 
 ## Response timeline
 

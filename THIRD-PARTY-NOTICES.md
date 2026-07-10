@@ -1,8 +1,8 @@
 # Third-Party Notices
 
 Rocket LAN's application redistributes the third-party components listed
-below. The notable components, the bundled GPLv2 network driver, Valve's
-Steamworks SDK, and the bundled fonts, warrant individual explanation
+below. The notable components, the bundled GPLv2 network driver, Discord's
+Social SDK, and the bundled fonts, warrant individual explanation
 here. The full auto-generated dependency lists (every Rust crate and every
 production npm package compiled into the shipped binary, with verbatim
 license text) ship inside the application and are reachable from
@@ -59,30 +59,28 @@ a WHQL submission.
 
 ---
 
-## Steamworks SDK, Valve's Steam integration library
+## Discord Social SDK, Discord's identity, friends, and presence library
 
-Rocket LAN integrates with Steam (friends list, identities, invites, rich
-presence, ownership checks) through Valve's **Steamworks SDK**. It links
-the `steamworks` and `steamworks-sys` Rust crates, and the shipped
-application bundles Valve's redistributable runtime library
-**`steam_api64.dll`**.
+Rocket LAN integrates with Discord (friends list, identities, invites, rich
+presence) through Discord's **Social SDK**. The SDK is a closed-source,
+vendored C/C++ library, called from Rust through hand-written FFI bindings
+generated with `bindgen`; the shipped application bundles its
+redistributable runtime library.
 
-- **Component:** Steamworks SDK (incl. `steam_api64.dll`)
-- **Copyright:** © Valve Corporation. All rights reserved.
-- **License:** Valve's **Steamworks SDK Access Agreement**, this is
-  Valve's own proprietary SDK license. It is **not** an open-source
-  license.
+- **Component:** Discord Social SDK
+- **Copyright:** © Discord Inc. All rights reserved.
+- **License:** Discord's own proprietary SDK terms, its **Developer
+  Terms**. This is **not** an open-source license.
 
-The Steamworks SDK is provided by Valve to Steamworks partners for the
-purpose of integrating their applications with Steam. `steam_api64.dll`
-is Valve's redistributable component and is shipped unmodified. The SDK
-and its redistributable are used under, and remain governed by, the
-Steamworks SDK Access Agreement:
-<https://partner.steamgames.com/documentation/sdk_access_agreement>
+The Discord Social SDK is provided by Discord to developers for the
+purpose of integrating applications with Discord's social features. It is
+downloaded from the Discord developer portal, vendored unmodified, and
+used under, and remains governed by, Discord's Developer Terms:
+<https://discord.com/developers/docs/discord-social-sdk/overview>
 
-The `steamworks` and `steamworks-sys` Rust crates are open-source Rust
-*bindings* to the SDK (MIT licensed, see the in-app full notices); the
-underlying Steamworks SDK itself remains under Valve's terms above.
+The SDK's own bundled open-source components (its C++ dependencies, e.g.
+`function2`, `jsoncpp`) are disclosed in its own notice file in the
+application's source tree.
 
 ---
 
