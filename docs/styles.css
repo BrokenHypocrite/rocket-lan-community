@@ -250,6 +250,8 @@ hr {
   gap: var(--space-3);
   flex-wrap: wrap;
   margin-top: var(--space-5);
+}
+.hero-cta--center {
   justify-content: center;
 }
 .hero-stats {
