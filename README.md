@@ -1,11 +1,11 @@
 # Rocket LAN, Community
 
-**Coming soon on Steam.** Custom-map LAN nights for Rocket League, with friends.
+**Free, on GitHub Releases.** Custom-map LAN nights for Rocket League, with friends.
 
-[**Wishlist on Steam &rarr;**](https://store.steampowered.com/app/3183610/Rocket_LAN)
+[**Download Now &rarr;**](https://github.com/BrokenHypocrite/rocket-lan-community/releases/latest)
 
 This repository is the **community-facing hub** for Rocket LAN. The app itself
-is a separate, closed-source Steam app; here you'll find:
+is a separate, closed-source Windows application; here you'll find:
 
 - **The website**, [`/docs`](./docs/), served at the project's GitHub Pages URL.
 - **Issues**, for [bug reports](../../issues/new?template=bug_report.yml) and
@@ -17,15 +17,17 @@ is a separate, closed-source Steam app; here you'll find:
 
 ## What Rocket LAN does
 
-Rocket LAN is a Steam companion app that lets you and friends play Rocket
+Rocket LAN lets you and friends play Rocket
 League **custom maps** together without anyone setting up a real LAN,
 port-forwarding their router, or fighting Windows networking. It spins up
 a private virtual network on each player's machine, downloads and syncs
 custom maps between players, then lets Rocket League's own built-in LAN
 match mode do the rest.
 
-- **Steam-friend invites.** Host a session, invite friends from your Steam
-  list, they join in a click.
+- **Discord friends and invites.** Sign in with Discord (optional) to see
+  your friends with in-app presence and invite them in a click. Discord rich
+  presence also carries your open sessions so friends can see and join
+  through Discord.
 - **Map sync.** Bring any custom map you have; Rocket LAN streams it to
   everyone in the lobby on the fly.
 - **Workshop textures handled.** Cooked Workshop texture set auto-downloads
@@ -39,15 +41,14 @@ match mode do the rest.
 
 ## Status
 
-Rocket LAN is **feature-complete for launch** and currently in Steam's review
-queue (typically a 1, 2 week window). The
-[roadmap page](https://BrokenHypocrite.github.io/rocket-lan-community/roadmap.html)
-covers what ships at launch and what's planned after. Wishlist the Steam
-page to be notified the moment it goes live:
-**<https://store.steampowered.com/app/3183610/Rocket_LAN>**.
+Rocket LAN is distributed as a Windows installer via
+[GitHub Releases](https://github.com/BrokenHypocrite/rocket-lan-community/releases/latest)
+on this repository, with built-in auto-update: the app checks for a new
+version on startup and can install it silently.
 
-Rocket LAN is distributed on Steam, and only on Steam right now. No plans to
-ship outside Steam; open to it if there's enough demand.
+Rocket League itself is still launched via Steam or Epic, and Workshop map
+subscriptions still require Rocket League owned on Steam; Rocket LAN's own
+distribution, friends, and invites no longer go through Steam.
 
 ## Contributing
 
