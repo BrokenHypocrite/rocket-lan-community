@@ -232,6 +232,10 @@ hr {
   z-index: 0;
 }
 .hero-inner { position: relative; z-index: 1; text-align: center; }
+/* Homepage hero overrides the centered default to left-aligned. */
+.hero--left .hero-inner { text-align: left; }
+.hero--left .hero-lede { margin-left: 0; margin-right: 0; }
+.hero--left .hero-cta { justify-content: flex-start; }
 .hero h1 { margin: var(--space-3) 0 var(--space-4); }
 .hero-lede {
   font-size: clamp(1.05rem, 1vw + 0.7rem, 1.25rem);
