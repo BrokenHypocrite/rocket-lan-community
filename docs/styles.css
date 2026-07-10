@@ -244,6 +244,12 @@ hr {
   flex-wrap: wrap;
   margin-top: var(--space-5);
 }
+.hero-stats {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  margin-top: var(--space-4);
+}
 
 /* --- buttons --------------------------------------------------------- */
 

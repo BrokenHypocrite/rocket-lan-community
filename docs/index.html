@@ -41,6 +41,10 @@
         </a>
         <a class="btn" href="features.html">See what it does</a>
       </div>
+      <div class="hero-stats" id="hero-stats" hidden>
+        <span class="pill" id="stat-downloads"></span>
+        <span class="pill" id="stat-launches" hidden></span>
+      </div>
     </div>
   </header>
 
@@ -425,6 +429,41 @@
           closeLightbox();
         }
       });
+    })();
+  </script>
+
+  <script>
+    // Usage stats strip: fetches the daily snapshot written by the stats
+    // workflow and fills in the hero pills. Any failure (network, parse,
+    // missing or zero data) leaves the whole strip hidden; it should never
+    // show a visitor a "0 downloads all-time" or an "undefined" pill.
+    (function () {
+      var heroStats = document.getElementById("hero-stats");
+      var downloadsEl = document.getElementById("stat-downloads");
+      var launchesEl = document.getElementById("stat-launches");
+      if (!heroStats || !downloadsEl || !launchesEl) return;
+
+      fetch("assets/stats.json")
+        .then(function (res) {
+          if (!res.ok) throw new Error("stats fetch failed");
+          return res.json();
+        })
+        .then(function (stats) {
+          var downloads = stats.downloads_total;
+          if (typeof downloads !== "number" || downloads <= 0) return;
+
+          downloadsEl.textContent = downloads.toLocaleString() + " downloads all-time";
+          heroStats.hidden = false;
+
+          var weekly = stats.weekly_launches;
+          if (typeof weekly === "number") {
+            launchesEl.textContent = weekly.toLocaleString() + " app launches this week";
+            launchesEl.hidden = false;
+          }
+        })
+        .catch(function () {
+          // Leave the strip hidden. No partial or placeholder numbers.
+        });
     })();
   </script>
 </body>
