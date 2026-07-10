@@ -36,7 +36,7 @@
         the Steam and Epic versions of Rocket League.
       </p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="https://github.com/BrokenHypocrite/rocket-lan-community/releases/latest">
+        <a class="btn btn-primary" id="hero-download" href="https://github.com/BrokenHypocrite/rocket-lan-community/releases/latest">
           Download Now
         </a>
         <a class="btn" href="features.html">See what it does</a>
@@ -463,6 +463,41 @@
         })
         .catch(function () {
           // Leave the strip hidden. No partial or placeholder numbers.
+        });
+    })();
+  </script>
+
+  <script>
+    // Instant download: rewrites the hero button's href to point straight
+    // at the installer asset, so clicking it starts the download instead
+    // of navigating to the releases page. The static href above is the
+    // no-JS / failure fallback, it always points at the releases page so
+    // the button is never dead.
+    //
+    // Direct asset downloads still increment the same GitHub download
+    // counter the stats workflow reads above, so that metric keeps
+    // working even though visitors skip the releases page.
+    (function () {
+      var heroDownload = document.getElementById("hero-download");
+      if (!heroDownload) return;
+
+      fetch("https://api.github.com/repos/BrokenHypocrite/rocket-lan-community/releases/latest")
+        .then(function (res) {
+          if (!res.ok) throw new Error("releases fetch failed");
+          return res.json();
+        })
+        .then(function (release) {
+          var assets = release.assets || [];
+          var setupAsset = assets.filter(function (asset) {
+            return typeof asset.name === "string" && asset.name.endsWith("-setup.exe");
+          })[0];
+          if (!setupAsset) return;
+
+          heroDownload.href = setupAsset.browser_download_url;
+          heroDownload.setAttribute("download", "");
+        })
+        .catch(function () {
+          // Leave the fallback href pointed at the releases page.
         });
     })();
   </script>
