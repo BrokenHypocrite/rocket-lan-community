@@ -409,35 +409,6 @@ hr {
   line-height: 1.5;
 }
 
-/* --- coffee fab -------------------------------------------------------
-   Injected by assets/coffee.js on every page. Fixed to the viewport
-   (not the document), so it floats above content without disturbing
-   the footer or page layout. */
-
-.coffee-fab {
-  position: fixed;
-  right: var(--space-5);
-  bottom: var(--space-5);
-  z-index: 50;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: #ffdd00;
-  box-shadow: 0 10px 28px -8px oklch(0 0 0 / 0.55);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
-}
-.coffee-fab:hover {
-  transform: translateY(-3px) scale(1.06);
-  box-shadow: 0 14px 32px -8px oklch(0 0 0 / 0.65);
-  text-decoration: none;
-}
-.coffee-fab svg {
-  width: 26px;
-  height: 26px;
-}
-
 /* --- slideshow (coverflow-style, JS-driven active state) ------------
    Cross-browser implementation: the JS in index.html toggles
    `is-active` on the centered slide and `is-adjacent` on its immediate
@@ -656,14 +627,12 @@ hr {
   .site-nav-links { gap: var(--space-3); width: 100%; }
   .site-nav-brand { margin-right: 0; }
   .hero { padding: var(--space-6) 0 var(--space-5); }
-  .coffee-fab { width: 46px; height: 46px; right: var(--space-3); bottom: var(--space-3); }
-  .coffee-fab svg { width: 22px; height: 22px; }
 }
 
 /* --- print ---------------------------------------------------------- */
 
 @media print {
-  .site-nav, .site-footer, .hero::before, .coffee-fab { display: none; }
+  .site-nav, .site-footer, .hero::before { display: none; }
   body { background: white; color: black; }
   a { color: black; text-decoration: underline; }
 }
