@@ -18,3 +18,4 @@ vendor/
 
 # Local notes / drafts kept outside the repo
 *.local.md
+trailer/
