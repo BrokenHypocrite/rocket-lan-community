@@ -4,6 +4,14 @@
    the app (dark base, cyan primary accent, magenta secondary) so people
    coming from the app feel like they're in the same place. */
 
+/* Shrink the Buy Me a Coffee floating widget button to about half size.
+   Targets the widget's injected button (#bmc-wbtn); anchored to the
+   bottom-right so it stays tucked in the corner as it scales down. */
+#bmc-wbtn {
+  transform: scale(0.5);
+  transform-origin: bottom right;
+}
+
 :root {
   /* Palette, same OKLCH values the app uses in `src/app.css`. */
   --bg: oklch(0.155 0.008 250);
