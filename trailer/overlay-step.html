@@ -1,0 +1,53 @@
+<!doctype html>
+<!--
+  Rocket LAN — numbered step lower-third (static overlay)
+  ============================================================================
+  Mirrors the trailer's scene-3 step labels (cyan number + accent bar + text)
+  for overlaying on demo video clips. Transparent background, self-hosted
+  fonts (./fonts), offline-safe.
+
+  Driven by URL params so one file renders every step:
+    • n=1            the big step number
+    • label=Pick a map   the step text (URL-encode spaces as %20 or +)
+
+  Render to a transparent PNG with headless Chromium, e.g.:
+    msedge --headless=new --window-size=1920,1080 --force-device-scale-factor=1 \
+      --default-background-color=00000000 --screenshot=step1.png \
+      "file:///…/trailer/overlay-step.html?n=1&label=Pick+a+map"
+-->
+<meta charset="utf-8">
+<title>Rocket LAN — step overlay</title>
+<style>
+  @font-face{font-family:"Space Grotesk";font-style:normal;font-weight:700;font-display:block;src:url("fonts/space-grotesk-700.woff2") format("woff2")}
+
+  :root{
+    --ink:oklch(0.96 0.004 250);            /* site --text */
+    --accent:oklch(0.82 0.13 205);          /* site --accent (cyan) */
+    --accent-soft:oklch(0.82 0.13 205 / 0.55);
+    --body:"Space Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    /* Stacked dark shadow so text reads on any gameplay background without a box. */
+    --legible:0 2px 10px rgba(0,0,0,.85),0 1px 2px rgba(0,0,0,.9);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1920px;height:1080px;overflow:hidden;background:transparent;font-family:var(--body)}
+
+  /* Lower-third anchored bottom-left, matching trailer scene 3. */
+  .label{position:absolute;left:120px;bottom:150px;display:flex;align-items:center;gap:34px}
+  .bar{width:12px;height:120px;border-radius:6px;background:var(--accent);box-shadow:0 0 28px var(--accent-soft);flex:none}
+  .num{font-family:var(--body);font-weight:700;font-size:140px;line-height:.8;color:var(--accent);
+    text-shadow:0 0 38px var(--accent-soft),var(--legible)}
+  .txt{font-family:var(--body);font-weight:700;font-size:78px;color:var(--ink);text-shadow:var(--legible)}
+</style>
+
+<div class="label">
+  <div class="bar"></div>
+  <div class="num" id="num">1</div>
+  <div class="txt" id="txt">Pick a map</div>
+</div>
+
+<script>
+  const p=new URLSearchParams(location.search);
+  if(p.get('n')) document.getElementById('num').textContent=p.get('n');
+  if(p.get('label')) document.getElementById('txt').textContent=p.get('label');
+</script>

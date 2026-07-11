@@ -1,0 +1,66 @@
+<!doctype html>
+<!--
+  Rocket LAN — thumbnail text overlay (transparent)
+  ============================================================================
+  The brand/text layer for a 1920x1080 thumbnail, meant to be composited over
+  your own background (e.g. a screenshot of the app). Transparent everywhere
+  except a bottom/left dark gradient scrim (so the text always reads) and the
+  text itself. Same brand fonts/colours as the trailer; self-hosted (./fonts).
+
+  Render to a transparent PNG with headless Chromium:
+    msedge --headless=new --window-size=1920,1080 --force-device-scale-factor=1 \
+      --default-background-color=00000000 --screenshot=thumb.png \
+      "file:///…/trailer/thumbnail-overlay.html"
+
+  Edit the .hook text below to reword. Then place this PNG on top of your app
+  image in your editor at 1:1.
+-->
+<meta charset="utf-8">
+<title>Rocket LAN — thumbnail overlay</title>
+<style>
+  @font-face{font-family:"Space Grotesk";font-style:normal;font-weight:600;font-display:block;src:url("fonts/space-grotesk-600.woff2") format("woff2")}
+  @font-face{font-family:"Space Grotesk";font-style:normal;font-weight:700;font-display:block;src:url("fonts/space-grotesk-700.woff2") format("woff2")}
+  @font-face{font-family:"JetBrains Mono";font-style:normal;font-weight:700;font-display:block;src:url("fonts/jetbrains-mono-700.woff2") format("woff2")}
+
+  :root{
+    --ink:oklch(0.97 0.004 250);
+    --accent:oklch(0.82 0.13 205);          /* cyan */
+    --accent-soft:oklch(0.82 0.13 205 / 0.6);
+    --body:"Space Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,"Liberation Mono",monospace;
+    --legible:0 3px 14px rgba(0,0,0,.9),0 1px 3px rgba(0,0,0,.95);
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1920px;height:1080px;overflow:hidden;background:transparent;font-family:var(--body)}
+
+  /* Legibility scrim: darkens the bottom and the bottom-left corner where the
+     text sits, fading to fully transparent toward the top-right so the app
+     image behind stays visible. */
+  .scrim{position:absolute;inset:0;background:
+    linear-gradient(0deg, rgba(0,0,0,.74) 0%, rgba(0,0,0,.46) 20%, rgba(0,0,0,0) 52%),
+    radial-gradient(85% 95% at 0% 100%, rgba(0,0,0,.55), transparent 62%)}
+
+  .block{position:absolute;left:112px;bottom:104px;display:flex;align-items:flex-start;gap:34px}
+  .accent-bar{width:14px;align-self:stretch;border-radius:7px;background:var(--accent);
+    box-shadow:0 0 30px var(--accent-soft);flex:none;margin-top:6px}
+  .txt{display:flex;flex-direction:column;gap:18px}
+
+  .kicker{font-family:var(--mono);font-weight:700;font-size:30px;letter-spacing:5px;
+    text-transform:uppercase;color:var(--accent);text-shadow:var(--legible)}
+  .wordmark{font-family:var(--body);font-weight:700;font-size:208px;line-height:.86;letter-spacing:-0.01em;
+    color:var(--ink);text-shadow:var(--legible)}
+  .wordmark .r{color:var(--accent);text-shadow:0 0 60px var(--accent-soft),0 0 18px var(--accent-soft),var(--legible)}
+  .hook{font-family:var(--body);font-weight:600;font-size:70px;color:var(--ink);text-shadow:var(--legible)}
+  .hook b{font-weight:700;color:var(--accent)}
+</style>
+
+<div class="scrim"></div>
+<div class="block">
+  <div class="accent-bar"></div>
+  <div class="txt">
+    <div class="kicker">Rocket League&nbsp;&nbsp;·&nbsp;&nbsp;Custom maps</div>
+    <div class="wordmark"><span class="l">ROCKET </span><span class="r">LAN</span></div>
+    <div class="hook">Custom-map nights, <b>one click</b></div>
+  </div>
+</div>
