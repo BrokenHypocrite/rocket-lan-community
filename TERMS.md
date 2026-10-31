@@ -66,10 +66,18 @@ necessary for the Software to function.
 
 ## 5. Privacy
 
-Rocket LAN has no servers operated by its developer. It does not collect,
-store, or transmit your personal data to the developer, and it contains no
-analytics, telemetry, or automatic crash reporting.
+Rocket LAN runs one developer-operated service: the Rocket LAN Discord bot,
+described below. Apart from it, Rocket LAN does not collect, store, or
+transmit your personal data to the developer, and it contains no analytics,
+telemetry, or automatic crash reporting.
 
+- **Rocket LAN Discord bot.** Rocket LAN contacts the bot only when you
+  press Find players on Discord, and sends it your Discord sign-in token
+  (used once to confirm who you are and that you're in the Rocket LAN
+  Discord server, then discarded), your session code, and your session's
+  player count. The bot keeps your Discord user ID, display name, session
+  code and post times while your post is up, and deletes them 7 days after
+  it closes. Rocket LAN sends nothing else to the developer.
 - **Discord data.** If you sign in with Discord, Rocket LAN reads your
   Discord friends list, Discord ids, display names, and avatars through
   the Discord Social SDK so it can show your friends and let you host,
