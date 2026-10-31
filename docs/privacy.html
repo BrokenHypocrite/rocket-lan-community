@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy, Rocket LAN</title>
-  <meta name="description" content="Rocket LAN has no servers of its own, no analytics, no telemetry. A plain-language summary of what data is read where, including the optional Discord sign-in." />
+  <meta name="description" content="Rocket LAN has no analytics and no telemetry; its only server is an optional Discord bot. A plain-language summary of what data is read where, including the optional Discord sign-in and the LFG bot." />
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/32x32.png" />
   <link rel="icon" href="assets/icons/icon.ico" />
@@ -26,9 +26,11 @@
   <main class="container prose">
     <h1>Privacy</h1>
     <p class="hero-lede">
-      Short version: Rocket LAN has no servers run by the developer, no
-      analytics, no telemetry, and no crash reporting. Nothing about your
-      use of the app is uploaded anywhere.
+      Short version: Rocket LAN has no analytics, no telemetry, and no
+      crash reporting. Its only developer-run server is the Rocket LAN
+      Discord bot, which hears from the app only when you press Find
+      players on Discord. Nothing else about your use of the app is
+      uploaded anywhere.
     </p>
 
     <h2>What stays on your computer</h2>
@@ -50,7 +52,8 @@
     </ul>
     <p>
       All of this happens in-process on your computer, between Rocket LAN
-      and Discord. None of it is sent to the developer.
+      and Discord. None of it is sent to the developer, apart from what
+      the Rocket LAN Discord bot gets when you post (below).
     </p>
 
     <h2>What's shared with other players</h2>
@@ -96,9 +99,22 @@
       friends (which is the point). Closing the app clears it.
     </p>
 
+    <h2>The Rocket LAN Discord bot</h2>
+    <p>
+      Rocket LAN contacts the bot only when you press Find players on
+      Discord, and sends it your Discord sign-in token (used once to
+      confirm who you are and that you're in the Rocket LAN Discord
+      server, then discarded), your session code, and your session's
+      player count. The bot keeps your Discord user ID, display name,
+      session code and post times while your post is up, and deletes them
+      7 days after it closes. Pressing Join on someone's post records
+      nothing beyond the voice channel permission Discord keeps for you.
+      Nothing is sent unless you press the button.
+    </p>
+
     <h2>What's not collected</h2>
     <ul>
-      <li>No analytics, no event pings, no view counts, no "session started" beacons.</li>
+      <li>No analytics, no event pings, no view counts, no "session started" beacons. The Discord bot hears about a session only when you post it.</li>
       <li>No telemetry, no performance data, no error reports, no usage stats.</li>
       <li>No crash reporting, if Rocket LAN crashes, you can paste the local diagnostic log into a bug report; nothing leaves your machine automatically.</li>
       <li>No third-party advertising or ad-network tags. The app embeds no web content.</li>
