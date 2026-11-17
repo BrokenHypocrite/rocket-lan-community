@@ -1,8 +1,8 @@
 {
-  "updated": "2026-11-16T11:17:20.763Z",
-  "downloads_total": 1777,
-  "launches_total": 12389,
-  "weekly_launches": 761,
+  "updated": "2026-11-17T11:51:46.211Z",
+  "downloads_total": 1798,
+  "launches_total": 12478,
+  "weekly_launches": 768,
   "history": [
     {
       "date": "2026-07-10",
@@ -653,6 +653,11 @@
       "date": "2026-11-16",
       "downloads": 1777,
       "launches": 12389
+    },
+    {
+      "date": "2026-11-17",
+      "downloads": 1798,
+      "launches": 12478
     }
   ]
 }
